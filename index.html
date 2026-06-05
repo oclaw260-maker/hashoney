@@ -8,7 +8,17 @@
   <style>
 
     /* ─── SMOOTH SCROLL ───────────────────────── */
-    html { scroll-behavior: smooth; background: var(--bg); }
+    html { scroll-behavior: smooth; background-color: var(--bg); }
+    html::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTA0IiB2aWV3Qm94PSIwIDAgMTIwIDEwNCI+PGRlZnM+PGcgaWQ9ImhleCI+PHBvbHlnb24gcG9pbnRzPSI2MCwyIDEwMCwyNiAxMDAsNzggNjAsMTAyIDIwLDc4IDIwLDI2IiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkI4MDAiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLW9wYWNpdHk9IjAuMTAiLz48L2c+PC9kZWZzPjx1c2UgaHJlZj0iI2hleCIgeD0iMCIgeT0iMCIvPjx1c2UgaHJlZj0iI2hleCIgeD0iNjAiIHk9IjUyIi8+PHVzZSBocmVmPSIjIiB4PSItNjAiIHk9IjUyIi8+PHVzZSBocmVmPSIjIiB4PSIwIiB5PSItNTIiLz48dXNlIGhyZWY9IiMiaCB4PSIwIiB5PSIxMDQiLz48dXNlIGhyZWY9IiMiaCB4PSI2MCIgeT0iLTUyIi8+PHVzZSBocmVmPSIjIiB4PSItNjAiIHk9Ii01MiIvPjx1c2UgaHJlZj0iI2hleCIgeD0iMTIwIiB5PSIwIi8+PHVzZSBocmVmPSIjIiB4PSItMTIwIiB5PSIwIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwwKSI+PHBvbHlnb24gcG9pbnRzPSI2MCwyIDEwMCwyNiAxMDAsNzggNjAsMTAyIDIwLDc4IDIwLDI2IiBmaWxsPSJyZ2JhKDI0NywxNDcsMjYsMC4wNSkiIHN0cm9rZT0iI0Y3OTMxQSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2Utb3BhY2l0eT0iMC4yMCIvPjx0ZXh0IHg9IjYwIiB5PSI2MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIzMiIgZm9udC13ZWlnaHQ9IjgwMCIgZm9udC1mYW1pbHk9IkNvdGllciBOZXcsIG1vbm9zcGFjZSIgZmlsbD0iI0Y3OTMxQSIgZmlsbC1vcGFjaXR5PSIwLjE4Ij7CtzwvdGV4dD48L2c+PC9zdmc+");
+      background-repeat: repeat;
+      background-size: 120px 104px;
+    }
 
     /* ─── SECTION BODY OVERRIDE for hero centering ─ */
     body.home {
@@ -134,6 +144,32 @@
       z-index: 2;
     }
 
+    /* ─── HONEY/BITCOIN DECORATIONS ───────────── */
+    .products-deco {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .honey-dipper {
+      display: block;
+    }
+    .hard-money-btc {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--honey);
+      color: #000;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 1.1rem;
+      font-family: 'Courier New', monospace;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
   </style>
 
   <!-- ─── BEE LAYER ──────────────────────────────── -->
@@ -233,18 +269,42 @@
           apply(bees[i], s, parallaxOffset);
         }
 
-        requestAnimationFrame(step);
+        rafId = requestAnimationFrame(step);
       }
 
-      var scrollY = 0;
+      // Bees only move while the user is scrolling
+      var rafId = null;
+      var scrollY = window.scrollY || window.pageYOffset;
+      var lastScroll = scrollY;
+      var scrollStopTimer = null;
+
+      function startMoving() {
+        if (rafId == null) {
+          last = performance.now();
+          rafId = requestAnimationFrame(step);
+        }
+      }
+      function stopMoving() {
+        if (rafId != null) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+      }
       function onScroll() {
         scrollY = window.scrollY || window.pageYOffset;
         parallaxOffset = scrollY * 0.0008;
+        lastScroll = scrollY;
+        startMoving();
+        clearTimeout(scrollStopTimer);
+        scrollStopTimer = setTimeout(stopMoving, 250);
       }
       window.addEventListener('scroll', onScroll, { passive: true });
 
       bees.forEach(initBee);
-      requestAnimationFrame(function (t) { last = t; step(t); });
+      // Single paint so bees are visible at their starting positions even when idle
+      apply(bees[0], state[0], parallaxOffset);
+      apply(bees[1], state[1], parallaxOffset);
+      apply(bees[2], state[2], parallaxOffset);
     })();
   </script>
 
@@ -539,6 +599,21 @@
 <section class="products-section" id="products">
 
   <span class="section-label">The Lineup</span>
+  <div class="products-deco" aria-hidden="true">
+    <svg class="honey-dipper" viewBox="0 0 32 80" width="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="14" y="2" width="4" height="12" rx="2" fill="#FFB800" opacity="0.8"/>
+      <g fill="none" stroke="#FFB800" stroke-width="1.5" opacity="0.5">
+        <ellipse cx="16" cy="22" rx="9" ry="2.5"/>
+        <ellipse cx="16" cy="30" rx="10" ry="2.5"/>
+        <ellipse cx="16" cy="38" rx="9" ry="2.5"/>
+        <ellipse cx="16" cy="46" rx="10" ry="2.5"/>
+        <ellipse cx="16" cy="54" rx="9" ry="2.5"/>
+        <ellipse cx="16" cy="62" rx="10" ry="2.5"/>
+        <ellipse cx="16" cy="70" rx="8" ry="2"/>
+      </g>
+      <path d="M9 76 Q 12 72, 16 76 T 23 76" stroke="#F7931A" stroke-width="1.2" fill="none" opacity="0.4"/>
+    </svg>
+  </div>
   <h2 class="section-title">Choose Your Hash</h2>
   <p class="section-sub">100% pure Western Australian Jarrah honey, cold-extracted and unfiltered. One size. No compromises.</p>
 
@@ -1072,7 +1147,7 @@
       <div class="col-footer">Fiat logic applied to food. You can't audit it.</div>
     </div>
     <div class="comparison-col comparison-col--hard">
-      <div class="col-header"><div class="col-label">Stack</div><div class="col-title">HashHoney</div></div>
+      <div class="col-header"><div class="col-label">Stack</div><div class="col-title">HashHoney</div><span class="hard-money-btc" aria-hidden="true">₿</span></div>
       <div class="col-body">
         <ul class="comparison-list">
           <li>Single-origin, single-flower, single-season. Nothing pooled.</li>
