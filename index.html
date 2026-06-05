@@ -8,7 +8,7 @@
   <style>
 
     /* ─── SMOOTH SCROLL ───────────────────────── */
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; background: var(--bg); }
 
     /* ─── SECTION BODY OVERRIDE for hero centering ─ */
     body.home {
@@ -22,6 +22,8 @@
       min-height: 100dvh;
       display: grid;
       place-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     /* Products section needs top padding cleared (hero is full-height) */
@@ -92,6 +94,108 @@
     }
 
   </style>
+
+  <!-- ─── BEE LAYER ──────────────────────────────── -->
+  <style>
+    .bee-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .bee {
+      position: absolute;
+      width: 38px;
+      height: 26px;
+      left: var(--bx, 50%);
+      top: var(--by, 50%);
+      transform: translate(-50%, -50%) translate3d(var(--tx,0px), var(--ty,0px), 0) rotate(var(--rot, 0deg));
+      will-change: transform;
+      animation: beeWobble var(--dur, 6s) ease-in-out infinite;
+      opacity: 0.85;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.25));
+    }
+    .bee svg { width: 100%; height: 100%; display:block; }
+    .bee .wing {
+      transform-origin: 12px 6px;
+      animation: wingFlap 0.12s linear infinite;
+    }
+    .bee:nth-child(2) .wing { animation-delay: -0.04s; }
+    .bee:nth-child(3) .wing { animation-delay: -0.06s; }
+    .bee:nth-child(4) .wing { animation-delay: -0.02s; }
+    .bee:nth-child(5) .wing { animation-delay: -0.08s; }
+
+    @keyframes wingFlap {
+      0%   { transform: scaleY(1)   rotate(-6deg); }
+      50%  { transform: scaleY(0.3) rotate(0deg);  }
+      100% { transform: scaleY(1)   rotate(-6deg); }
+    }
+    @keyframes beeWobble {
+      0%, 100% { transform: translate(-50%, -50%) translate3d(var(--tx,0px), var(--ty,0px), 0) rotate(var(--rot, 0deg)); }
+      50%      { transform: translate(-50%, -50%) translate3d(calc(var(--tx,0px) + var(--wx,8px)), calc(var(--ty,0px) + var(--wy,-4px)), 0) rotate(calc(var(--rot, 0deg) + var(--wr,5deg))); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bee, .bee .wing { animation: none !important; }
+    }
+
+    /* Lift page content above the fixed bee layer */
+    .products-section,
+    .story-section,
+    .howtobuy-section,
+    .philosophy-section,
+    .site-footer,
+    .comparison-section,
+    main,
+    section {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+
+  <div class="bee-layer" aria-hidden="true">
+    <div class="bee" style="--bx:12%; --by:20%; --tx:0px;  --ty:0px;  --rot:8deg;  --wx:14px; --wy:-6px; --wr:-4deg; --dur:5.2s;">
+      <svg viewBox="0 0 38 26"><ellipse class="wing" cx="12" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse class="wing" cx="26" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse cx="19" cy="15" rx="13" ry="8" fill="#1a1a1a"/><rect x="11" y="8"  width="3" height="14" fill="#f5b800"/><rect x="18" y="8"  width="3" height="14" fill="#f5b800"/><rect x="25" y="8"  width="2" height="14" fill="#f5b800"/><circle cx="32" cy="14" r="1.5" fill="#000"/></svg>
+    </div>
+    <div class="bee" style="--bx:78%; --by:35%; --tx:0px;  --ty:0px;  --rot:-12deg;--wx:-12px;--wy:5px;  --wr:6deg;  --dur:6.4s;">
+      <svg viewBox="0 0 38 26"><ellipse class="wing" cx="12" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse class="wing" cx="26" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse cx="19" cy="15" rx="13" ry="8" fill="#1a1a1a"/><rect x="11" y="8"  width="3" height="14" fill="#f5b800"/><rect x="18" y="8"  width="3" height="14" fill="#f5b800"/><rect x="25" y="8"  width="2" height="14" fill="#f5b800"/><circle cx="32" cy="14" r="1.5" fill="#000"/></svg>
+    </div>
+    <div class="bee" style="--bx:28%; --by:55%; --tx:0px;  --ty:0px;  --rot:18deg; --wx:18px; --wy:-8px; --wr:-7deg; --dur:4.8s;">
+      <svg viewBox="0 0 38 26"><ellipse class="wing" cx="12" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse class="wing" cx="26" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse cx="19" cy="15" rx="13" ry="8" fill="#1a1a1a"/><rect x="11" y="8"  width="3" height="14" fill="#f5b800"/><rect x="18" y="8"  width="3" height="14" fill="#f5b800"/><rect x="25" y="8"  width="2" height="14" fill="#f5b800"/><circle cx="32" cy="14" r="1.5" fill="#000"/></svg>
+    </div>
+    <div class="bee" style="--bx:65%; --by:72%; --tx:0px;  --ty:0px;  --rot:-6deg; --wx:-10px;--wy:-6px; --wr:3deg;  --dur:7.1s;">
+      <svg viewBox="0 0 38 26"><ellipse class="wing" cx="12" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse class="wing" cx="26" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse cx="19" cy="15" rx="13" ry="8" fill="#1a1a1a"/><rect x="11" y="8"  width="3" height="14" fill="#f5b800"/><rect x="18" y="8"  width="3" height="14" fill="#f5b800"/><rect x="25" y="8"  width="2" height="14" fill="#f5b800"/><circle cx="32" cy="14" r="1.5" fill="#000"/></svg>
+    </div>
+    <div class="bee" style="--bx:45%; --by:88%; --tx:0px;  --ty:0px;  --rot:24deg; --wx:20px; --wy:4px;  --wr:-5deg; --dur:5.7s;">
+      <svg viewBox="0 0 38 26"><ellipse class="wing" cx="12" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse class="wing" cx="26" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse cx="19" cy="15" rx="13" ry="8" fill="#1a1a1a"/><rect x="11" y="8"  width="3" height="14" fill="#f5b800"/><rect x="18" y="8"  width="3" height="14" fill="#f5b800"/><rect x="25" y="8"  width="2" height="14" fill="#f5b800"/><circle cx="32" cy="14" r="1.5" fill="#000"/></svg>
+    </div>
+  </div>
+
+  <script>
+    // Parallax: each bee drifts down at its own rate as you scroll
+    (function () {
+      var layer = document.querySelector('.bee-layer');
+      if (!layer) return;
+      var bees = layer.querySelectorAll('.bee');
+      var rates = [0.15, 0.32, 0.08, 0.22, 0.45];
+      var rots  = [2, -3, 1, -1, 2];
+      var ticking = false;
+      function update() {
+        var y = window.scrollY || window.pageYOffset;
+        bees.forEach(function (bee, i) {
+          var ty = y * (rates[i] || 0.2);
+          bee.style.setProperty('--ty', ty + 'px');
+        });
+        ticking = false;
+      }
+      function onScroll() {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      update();
+    })();
+  </script>
+
 </head>
 <body class="home">
 
@@ -178,7 +282,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: var(--bg);
+      background: transparent;
       color: var(--ink);
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       line-height: 1.5;
