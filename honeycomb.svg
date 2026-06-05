@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="104" viewBox="0 0 120 104">
+  <defs>
+    <g id="hex">
+      <polygon points="60,2 100,26 100,78 60,102 20,78 20,26"
+               fill="none" stroke="#FFB800" stroke-width="1" stroke-opacity="0.18"/>
+    </g>
+    <g id="hex-btc">
+      <polygon points="60,2 100,26 100,78 60,102 20,78 20,26"
+               fill="rgba(247,147,26,0.10)" stroke="#F7931A" stroke-width="1" stroke-opacity="0.45"/>
+      <text x="60" y="64" text-anchor="middle" font-size="34" font-weight="800"
+            font-family="Courier New, monospace" fill="#F7931A" fill-opacity="0.45">₿</text>
+    </g>
+  </defs>
+  <use href="#hex" x="0" y="0"/>
+  <use href="#hex" x="60" y="52"/>
+  <use href="#hex" x="-60" y="52"/>
+  <use href="#hex" x="0" y="-52"/>
+  <use href="#hex" x="0" y="104"/>
+  <use href="#hex" x="60" y="-52"/>
+  <use href="#hex" x="-60" y="-52"/>
+  <use href="#hex" x="120" y="0"/>
+  <use href="#hex" x="-120" y="0"/>
+  <!-- Bitcoin hex in top-left of tile (so it tiles every 120px) -->
+  <use href="#hex-btc" x="0" y="0"/>
+</svg>
