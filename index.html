@@ -160,53 +160,6 @@
       flex-shrink: 0;
     }
 
-    /* ─── HONEYCOMB BACKGROUND ─────────────────── */
-    /*
-      Two-layer fixed background, both centered on the viewport:
-        1) Radial gradient: bright amber center → dark honey → near-black edges
-        2) Hex grid SVG tile, masked with the same radial so the hexes
-           glow in the dead center and dim out toward all four edges.
-      All self-contained: the hex pattern is an inline data URI, no external
-      assets. 100vw / 100vh, responsive on any viewport size.
-    */
-    .honeycomb-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      background-color: #050505;
-      background-image:
-        url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTA0IiB2aWV3Qm94PSIwIDAgMTIwIDEwNCI+CiAgPGRlZnM+CiAgICA8ZyBpZD0iaGV4Ij4KICAgICAgPHBvbHlnb24gcG9pbnRzPSI2MCwyIDEwMCwyNiAxMDAsNzggNjAsMTAyIDIwLDc4IDIwLDI2IgogICAgICAgICAgICAgICBmaWxsPSJub25lIiBzdHJva2U9IiNGRkI4MDAiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgICA8L2c+CiAgICA8ZyBpZD0iaGV4LWJ0YyI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNjAsMiAxMDAsMjYgMTAwLDc4IDYwLDEwMiAyMCw3OCAyMCwyNiIKICAgICAgICAgICAgICAgZmlsbD0icmdiYSgyNTUsMTg0LDAsMC4wNikiIHN0cm9rZT0iI0ZGQjgwMCIgc3Ryb2tlLXdpZHRoPSIxLjQiLz4KICAgICAgPHRleHQgeD0iNjAiIHk9IjYyIiB0ZXh0LW5hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9IjgwMCIKICAgICAgICAgICAgZm9udC1mYW1pbHk9IkNvdGllciBOZXcsIG1vbm9zcGFjZSIgZmlsbD0iI0ZGQjgwMCI+4oK/PC90ZXh0PgogICAgPC9nPgogIDwvZGVmcz4KICA8dXNlIGhyZWY9IiNoZXgiIHg9IjAiICAgeT0iMCIvPgogIDx1c2UgaHJlZj0iI2hleCIgeD0iNjAiICB5PSI1MiIvPgogIDx1c2UgaHJlZj0iI2hleCIgeD0iLTYwIiB5PSI1MiIvPgogIDx1c2UgaHJlZj0iI2hleC1idGMiIHg9IjAiIHk9IjAiLz4KPC9zdmc+Cg=="),
-        radial-gradient(ellipse at center,
-          #ffb300 0%,
-          #d68a00 18%,
-          #6b3a00 45%,
-          #1a0d00 75%,
-          #050505 100%);
-      background-repeat: repeat, no-repeat;
-      background-size: 120px 104px, 100% 100%;
-      background-position: 0 0, center center;
-      background-attachment: fixed, fixed;
-
-      /* Mask the whole element with the same radial fade so the hex grid
-         is fully visible in the center and fades to transparent at the edges,
-         letting the dark html background show through. */
-      -webkit-mask-image: radial-gradient(ellipse at center,
-        #000 0%,
-        #000 25%,
-        rgba(0,0,0,0.7) 55%,
-        rgba(0,0,0,0.0) 90%);
-              mask-image: radial-gradient(ellipse at center,
-        #000 0%,
-        #000 25%,
-        rgba(0,0,0,0.7) 55%,
-        rgba(0,0,0,0.0) 90%);
-      -webkit-mask-repeat: no-repeat;
-              mask-repeat: no-repeat;
-      -webkit-mask-size: 100% 100%;
-              mask-size: 100% 100%;
-    }
-
   </style>
 
   <!-- ─── BEE LAYER ──────────────────────────────── -->
@@ -348,10 +301,6 @@
 </head>
 <body class="home">
 
-  <!-- ─── HONEYCOMB BACKGROUND ──────────────────────── -->
-  <div class="honeycomb-bg" aria-hidden="true"></div>
-
-
 
 
     <nav class="site-nav" role="navigation" aria-label="Main">
@@ -432,7 +381,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: transparent;
+      background: var(--bg);
       color: var(--ink);
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       line-height: 1.5;
