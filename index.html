@@ -106,69 +106,109 @@
     }
     .bee {
       position: absolute;
-      font-size: 28px;
+      font-size: var(--size, 28px);
       line-height: 1;
-      left: var(--bx, 50%);
-      top: var(--by, 50%);
-      transform: translate(-50%, -50%) translate3d(var(--tx,0px), var(--ty,0px), 0) rotate(var(--rot, 0deg));
+      left: 0;
+      top: 0;
       will-change: transform;
-      animation: beeWobble var(--dur, 6s) ease-in-out infinite;
       opacity: 0.9;
       filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
       user-select: none;
-    }
-    @keyframes beeWobble {
-      0%, 100% { transform: translate(-50%, -50%) translate3d(var(--tx,0px), var(--ty,0px), 0) rotate(var(--rot, 0deg)); }
-      50%      { transform: translate(-50%, -50%) translate3d(calc(var(--tx,0px) + var(--wx,8px)), calc(var(--ty,0px) + var(--wy,-4px)), 0) rotate(calc(var(--rot, 0deg) + var(--wr,5deg))); }
+      transform: translate3d(var(--x, 50vw), var(--y, 50vh), 0) translate(-50%, -50%) rotate(var(--rot, 0deg)) scale(var(--scale, 1));
+      transition: transform 1.2s linear;
     }
     @media (prefers-reduced-motion: reduce) {
-      .bee { animation: none !important; }
-    }
-
-    /* Lift page content above the fixed bee layer */
-    .products-section,
-    .story-section,
-    .howtobuy-section,
-    .philosophy-section,
-    .site-footer,
-    .comparison-section,
-    main,
-    section {
-      position: relative;
-      z-index: 2;
+      .bee { transition: none !important; }
     }
   </style>
 
   <div class="bee-layer" aria-hidden="true">
-    <div class="bee" style="--bx:12%; --by:20%; --tx:0px; --ty:0px; --rot:8deg;   --wx:14px; --wy:-6px; --wr:-4deg; --dur:5.2s;">🐝</div>
-    <div class="bee" style="--bx:78%; --by:35%; --tx:0px; --ty:0px; --rot:-12deg; --wx:-12px;--wy:5px;  --wr:6deg;  --dur:6.4s;">🐝</div>
-    <div class="bee" style="--bx:28%; --by:55%; --tx:0px; --ty:0px; --rot:18deg;  --wx:18px; --wy:-8px; --wr:-7deg; --dur:4.8s;">🐝</div>
-    <div class="bee" style="--bx:65%; --by:72%; --tx:0px; --ty:0px; --rot:-6deg;  --wx:-10px;--wy:-6px; --wr:3deg;  --dur:7.1s;">🐝</div>
-    <div class="bee" style="--bx:45%; --by:88%; --tx:0px; --ty:0px; --rot:24deg;  --wx:20px; --wy:4px;  --wr:-5deg; --dur:5.7s;">🐝</div>
+    <div class="bee" style="--size: 26px;">🐝</div>
+    <div class="bee" style="--size: 34px;">🐝</div>
+    <div class="bee" style="--size: 22px;">🐝</div>
+    <div class="bee" style="--size: 42px;">🐝</div>
+    <div class="bee" style="--size: 30px;">🐝</div>
+    <div class="bee" style="--size: 24px;">🐝</div>
+    <div class="bee" style="--size: 38px;">🐝</div>
+    <div class="bee" style="--size: 28px;">🐝</div>
   </div>
 
   <script>
-    // Parallax: each bee drifts down at its own rate as you scroll
     (function () {
       var layer = document.querySelector('.bee-layer');
       if (!layer) return;
       var bees = layer.querySelectorAll('.bee');
-      var rates = [0.15, 0.32, 0.08, 0.22, 0.45];
-      var rots  = [2, -3, 1, -1, 2];
-      var ticking = false;
-      function update() {
-        var y = window.scrollY || window.pageYOffset;
-        bees.forEach(function (bee, i) {
-          var ty = y * (rates[i] || 0.2);
-          bee.style.setProperty('--ty', ty + 'px');
-        });
-        ticking = false;
+      if (!bees.length) return;
+
+      function rand(min, max) { return min + Math.random() * (max - min); }
+      function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+      var state = [];
+      var last = performance.now();
+      var parallaxOffset = 0;
+
+      function apply(bee, s, po) {
+        bee.style.setProperty('--x', s.x + 'vw');
+        bee.style.setProperty('--y', (s.y + po) + 'vh');
+        bee.style.setProperty('--rot', s.rot + 'deg');
+        bee.style.setProperty('--scale', s.scale);
       }
+
+      function initBee(bee, i) {
+        var s = {
+          x: rand(5, 95),
+          y: rand(5, 95),
+          targetX: 0,
+          targetY: 0,
+          rot: rand(0, 360),
+          rotSpeed: rand(-1.2, 1.2),
+          scale: 1,
+          speed: rand(0.7, 1.6)
+        };
+        s.targetX = clamp(s.x + rand(-30, 30), 5, 95);
+        s.targetY = clamp(s.y + rand(-30, 30), 5, 95);
+        apply(bee, s, 0);
+        state[i] = s;
+      }
+
+      function step(now) {
+        var dt = Math.min(2, (now - last) / 1000);
+        last = now;
+
+        for (var i = 0; i < state.length; i++) {
+          var s = state[i];
+          var dx = s.targetX - s.x;
+          var dy = s.targetY - s.y;
+          var dist = Math.hypot(dx, dy);
+
+          if (dist < 4) {
+            s.targetX = clamp(s.x + rand(-40, 40), 4, 96);
+            s.targetY = clamp(s.y + rand(-40, 40), 4, 96);
+            if (Math.random() < 0.25) s.scale = rand(0.7, 1.3);
+            s.rotSpeed = rand(-1.6, 1.6);
+          } else {
+            var stepLen = 30 * s.speed * dt;
+            var ratio = stepLen / dist;
+            s.x += dx * ratio;
+            s.y += dy * ratio;
+            s.rot += s.rotSpeed * 60 * dt;
+          }
+
+          apply(bees[i], s, parallaxOffset);
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      var scrollY = 0;
       function onScroll() {
-        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+        scrollY = window.scrollY || window.pageYOffset;
+        parallaxOffset = scrollY * 0.0008;
       }
       window.addEventListener('scroll', onScroll, { passive: true });
-      update();
+
+      bees.forEach(initBee);
+      requestAnimationFrame(function (t) { last = t; step(t); });
     })();
   </script>
 
