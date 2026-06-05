@@ -126,6 +126,14 @@
       font-weight: 600;
     }
 
+    /* Lift page sections above the fixed bee layer so bees show in the gutters */
+    main, section, .products-section, .story-section,
+    .howtobuy-section, .philosophy-section, .site-footer,
+    .comparison-section {
+      position: relative;
+      z-index: 2;
+    }
+
   </style>
 
   <!-- ─── BEE LAYER ──────────────────────────────── -->
@@ -156,14 +164,9 @@
   </style>
 
   <div class="bee-layer" aria-hidden="true">
-    <div class="bee" style="--size: 26px;">🐝</div>
-    <div class="bee" style="--size: 34px;">🐝</div>
-    <div class="bee" style="--size: 22px;">🐝</div>
-    <div class="bee" style="--size: 42px;">🐝</div>
-    <div class="bee" style="--size: 30px;">🐝</div>
-    <div class="bee" style="--size: 24px;">🐝</div>
-    <div class="bee" style="--size: 38px;">🐝</div>
     <div class="bee" style="--size: 28px;">🐝</div>
+    <div class="bee" style="--size: 34px;">🐝</div>
+    <div class="bee" style="--size: 24px;">🐝</div>
   </div>
 
   <script>
@@ -220,7 +223,7 @@
             if (Math.random() < 0.25) s.scale = rand(0.7, 1.3);
             s.rotSpeed = rand(-1.6, 1.6);
           } else {
-            var stepLen = 30 * s.speed * dt;
+            var stepLen = 15 * s.speed * dt; // % per second (50% slower)
             var ratio = stepLen / dist;
             s.x += dx * ratio;
             s.y += dy * ratio;
