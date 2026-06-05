@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashHoney — Proof of Work in Every Spoonful</title>
+  <meta name="description" content="Rare Western Australian Jarrah honey. Bitcoin only. No fiat. Sats accepted." />
+  <style>
+
+    /* ─── SMOOTH SCROLL ───────────────────────── */
+    html { scroll-behavior: smooth; }
+
+    /* ─── SECTION BODY OVERRIDE for hero centering ─ */
+    body.home {
+      display: block; /* override hero's 100dvh centering */
+      min-height: 100%;
+      place-items: unset;
+    }
+
+    /* Make hero full-viewport */
+    .hero {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+    }
+
+    /* Products section needs top padding cleared (hero is full-height) */
+    .products-section { padding-top: 5rem; }
+
+
+    /* ─── NAV ─────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.875rem 2rem;
+      background: rgba(11,11,11,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #2A2A2A;
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #FAFAFA;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: #FFB800; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      color: #888;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: #FAFAFA; }
+
+    .nav-cta {
+      font-size: 0.8rem !important;
+      color: #FFB800 !important;
+      font-weight: 700 !important;
+      border: 1px solid rgba(255,184,0,0.4);
+      padding: 0.35rem 0.875rem;
+      border-radius: 4px;
+      transition: background 0.15s, color 0.15s !important;
+    }
+
+    .nav-cta:hover {
+      background: #FFB800;
+      color: #000 !important;
+    }
+
+    @media (max-width: 640px) {
+      .site-nav { padding: 0.75rem 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+
+  </style>
+</head>
+<body class="home">
+
+
+
+
+    <nav class="site-nav" role="navigation" aria-label="Main">
+      <a href="#" class="nav-logo">Hash<span>Honey</span></a>
+      <ul class="nav-links">
+        <li><a href="#story">The Story</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#howtobuy">How to Buy</a></li>
+        <li><a href="#products" class="nav-cta">Shop →</a></li>
+      </ul>
+    </nav>
+
+
+
+<main class="hero" role="main">
+
+  <div class="logo-mark" aria-label="HashHoney Logo">
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 4L54.3923 18V46L32 60L9.6077 46V18L32 4Z"
+            stroke="#FFB800" stroke-width="2" fill="none"/>
+      <path d="M32 14L46.9282 23V37L32 46L17.0718 37V23L32 14Z"
+            stroke="#F7931A" stroke-width="1.5" fill="rgba(247,147,26,0.08)"/>
+      <line x1="17.0718" y1="23" x2="46.9282" y2="37" stroke="#FFB800" stroke-width="1.5" opacity="0.6"/>
+      <line x1="46.9282" y1="23" x2="17.0718" y2="37" stroke="#FFB800" stroke-width="1.5" opacity="0.6"/>
+      <text x="32" y="33" text-anchor="middle" font-size="8" font-weight="800"
+            fill="#FFB800" font-family="monospace">#</text>
+    </svg>
+  </div>
+
+  <h1 class="brand">Hash<span>Honey</span></h1>
+  <p class="tagline">Proof of Work in Every Spoonful</p>
+
+  <p class="headline">
+    Rare Western Australian Jarrah Honey.<br />
+    No fiat. No compromise. Bitcoin only.
+  </p>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <div class="cta-group">
+    <a href="#products" class="btn-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+      Buy with Lightning
+    </a>
+    <a href="#story" class="btn-secondary">Read the Story →</a>
+  </div>
+
+  <div class="sats-badge">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+    </svg>
+    Powered by BTCPay Server · Lightning &amp; On-Chain
+  </div>
+
+</main>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashHoney — Products</title>
+  <style>
+    :root {
+      --bg:      #0B0B0B;
+      --surface: #141414;
+      --ink:     #FAFAFA;
+      --muted:   #888888;
+      --border:  #2A2A2A;
+      --accent:  #F7931A;
+      --honey:   #FFB800;
+      --glow:    rgba(255,184,0,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .products-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 3.5rem;
+      max-width: 480px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    @media (max-width: 760px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--honey));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(255,184,0,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px var(--glow);
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card--featured {
+      border-color: rgba(255,184,0,0.4);
+      background: linear-gradient(180deg, rgba(255,184,0,0.06) 0%, var(--surface) 40%);
+    }
+
+    .card--featured::before { opacity: 1; }
+
+    .card-weight {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+
+    .card-tagline {
+      font-size: 0.8rem;
+      color: var(--honey);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-visual {
+      height: 140px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .jar { transition: transform 0.2s; }
+    .card:hover .jar { transform: scale(1.04); }
+
+    .card-description {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+
+    .price-block {
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+    }
+
+    .price-sats {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.15rem;
+    }
+
+    .price-sats span {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .price-approx {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .btn-buy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--honey);
+      color: var(--honey);
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s, transform 0.1s;
+    }
+
+    .btn-buy:hover { background: var(--honey); color: #000; }
+    .btn-buy:active { transform: scale(0.98); }
+
+    .card--featured .btn-buy { background: var(--honey); color: #000; }
+    .card--featured .btn-buy:hover { background: #FFD84D; }
+
+    .products-note {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<section class="products-section" id="products">
+
+  <span class="section-label">The Lineup</span>
+  <h2 class="section-title">Choose Your Hash</h2>
+  <p class="section-sub">All three sizes are 100% pure Western Australian Jarrah honey, cold-extracted and unfiltered.</p>
+
+  <div class="card-grid">
+
+    <!-- 250g -->
+    <article class="card">
+      <div class="card-weight">250g</div>
+      <h3 class="card-name">The 250g Hive</h3>
+      <p class="card-tagline">Start stacking sats and honey</p>
+      <div class="card-visual">
+        <svg class="jar" viewBox="0 0 80 120" width="55" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="15" y="30" width="50" height="70" rx="8" fill="#1C1C1C" stroke="#FFB800" stroke-width="1.5"/>
+          <rect x="20" y="36" width="40" height="58" rx="5" fill="rgba(255,184,0,0.12)"/>
+          <rect x="10" y="20" width="60" height="14" rx="4" fill="#0B0B0B" stroke="#2A2A2A" stroke-width="1.5"/>
+          <text x="40" y="69" text-anchor="middle" font-size="7" font-weight="800" fill="#FFB800" font-family="monospace">#H</text>
+          <rect x="22" y="42" width="36" height="2" rx="1" fill="#FFB800" opacity="0.4"/>
+          <rect x="22" y="48" width="28" height="2" rx="1" fill="#FFB800" opacity="0.25"/>
+          <rect x="22" y="54" width="32" height="2" rx="1" fill="#FFB800" opacity="0.25"/>
+        </svg>
+      </div>
+      <p class="card-description">Your daily dose of WA gold. Rich, dark, full-bodied Jarrah — perfect for your morning stack.</p>
+      <div class="price-block">
+        <div class="price-sats">3,800 <span>sats</span></div>
+        <div class="price-approx">≈ AUD $45 at current price</div>
+        <a href="#" class="btn-buy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Buy with Lightning
+        </a>
+      </div>
+    </article>
+
+    <!-- 500g Flagship -->
+    <article class="card card--featured">
+      <div class="card-weight">500g — Flagship</div>
+      <h3 class="card-name">The 500g Block</h3>
+      <p class="card-tagline">The standard. Nothing trimmed.</p>
+      <div class="card-visual">
+        <svg class="jar" viewBox="0 0 80 130" width="70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="28" width="56" height="82" rx="9" fill="#1C1C1C" stroke="#FFB800" stroke-width="1.5"/>
+          <rect x="17" y="35" width="46" height="68" rx="6" fill="rgba(255,184,0,0.14)"/>
+          <rect x="7" y="16" width="66" height="16" rx="5" fill="#0B0B0B" stroke="#2A2A2A" stroke-width="1.5"/>
+          <text x="40" y="74" text-anchor="middle" font-size="9" font-weight="800" fill="#FFB800" font-family="monospace">#H</text>
+          <rect x="20" y="42" width="40" height="2" rx="1" fill="#FFB800" opacity="0.5"/>
+          <rect x="20" y="49" width="32" height="2" rx="1" fill="#FFB800" opacity="0.3"/>
+          <rect x="20" y="56" width="36" height="2" rx="1" fill="#FFB800" opacity="0.3"/>
+          <rect x="20" y="63" width="28" height="2" rx="1" fill="#FFB800" opacity="0.2"/>
+        </svg>
+      </div>
+      <p class="card-description">Our most popular size. Perfect for gifts or committing to a single exceptional jar. Goes hard.</p>
+      <div class="price-block">
+        <div class="price-sats">7,100 <span>sats</span></div>
+        <div class="price-approx">≈ AUD $85 at current price</div>
+        <a href="#" class="btn-buy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Buy with Lightning
+        </a>
+      </div>
+    </article>
+
+    <!-- 1kg Vault -->
+    <article class="card">
+      <div class="card-weight">1kg</div>
+      <h3 class="card-name">The 1kg Vault</h3>
+      <p class="card-tagline">For the true maximalist.</p>
+      <div class="card-visual">
+        <svg class="jar" viewBox="0 0 80 145" width="85" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="26" width="64" height="100" rx="10" fill="#1C1C1C" stroke="#FFB800" stroke-width="1.5"/>
+          <rect x="14" y="34" width="52" height="82" rx="7" fill="rgba(255,184,0,0.15)"/>
+          <rect x="4" y="14" width="72" height="16" rx="5" fill="#0B0B0B" stroke="#2A2A2A" stroke-width="1.5"/>
+          <text x="40" y="80" text-anchor="middle" font-size="11" font-weight="800" fill="#FFB800" font-family="monospace">#H</text>
+          <rect x="18" y="42" width="44" height="2" rx="1" fill="#FFB800" opacity="0.55"/>
+          <rect x="18" y="50" width="36" height="2" rx="1" fill="#FFB800" opacity="0.35"/>
+          <rect x="18" y="58" width="40" height="2" rx="1" fill="#FFB800" opacity="0.35"/>
+          <rect x="18" y="66" width="32" height="2" rx="1" fill="#FFB800" opacity="0.25"/>
+          <rect x="18" y="74" width="36" height="2" rx="1" fill="#FFB800" opacity="0.2"/>
+        </svg>
+      </div>
+      <p class="card-description">Maximum Jarrah, minimum compromise. Not for beginners. This is the one you stack when you mean it.</p>
+      <div class="price-block">
+        <div class="price-sats">13,300 <span>sats</span></div>
+        <div class="price-approx">≈ AUD $160 at current price</div>
+        <a href="#" class="btn-buy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Buy with Lightning
+        </a>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="products-note">
+    * Sats price is approximate and updates via live BTC/AUD oracle at checkout.
+    All orders ship Australia-wide. No fiat accepted.
+  </p>
+
+</section>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashHoney — The Story</title>
+  <style>
+    :root {
+      --bg:      #0B0B0B;
+      --surface: #141414;
+      --ink:     #FAFAFA;
+      --muted:   #888888;
+      --border:  #2A2A2A;
+      --accent:  #F7931A;
+      --honey:   #FFB800;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .story-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 7rem 2rem;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 4rem;
+      max-width: 600px;
+    }
+
+    .section-title em { font-style: normal; color: var(--honey); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 720px) {
+      .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    .story-body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .story-body p { margin-bottom: 1.5rem; }
+    .story-body strong { color: var(--ink); font-weight: 600; }
+    .story-body em { color: var(--honey); font-style: normal; }
+
+    .provenance {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .prov-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .prov-row:last-child { border-bottom: none; }
+    .prov-label { color: var(--muted); font-weight: 500; }
+    .prov-value { color: var(--ink); font-family: 'Courier New', Courier, monospace; font-size: 0.78rem; }
+    .prov-value--highlight { color: var(--honey); }
+
+    .story-visual { position: sticky; top: 2rem; }
+
+    .forest-illo {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      margin-bottom: 2rem;
+    }
+
+    .quote-block {
+      background: var(--surface);
+      border-left: 3px solid var(--honey);
+      border-radius: 0 6px 6px 0;
+      padding: 1.5rem 1.75rem;
+    }
+
+    .quote-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--ink);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .quote-text::before { content: '\201C'; color: var(--honey); }
+    .quote-text::after  { content: '\201D'; color: var(--honey); }
+
+    .quote-attribution { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.05em; }
+
+    .honeycomb-divider {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin: 5rem 0;
+      opacity: 0.35;
+    }
+
+    .hex {
+      width: 12px;
+      height: 12px;
+      background: var(--honey);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+  </style>
+</head>
+<body>
+
+<section class="story-section" id="story">
+
+  <span class="section-label">The Origin Story</span>
+  <h2 class="section-title">Born in the Jarrah Forests<br /><em>of Western Australia</em></h2>
+
+  <div class="story-grid">
+
+    <div class="story-col">
+      <div class="story-body">
+        <p>
+          The Jarrah tree — <strong>Eucalyptus marginata</strong> — is native to
+          Boya, Perth Hills, Western Australia. It flowers once a year, for just a few weeks.
+          The honey bees work that window or nothing at all.
+        </p>
+        <p>
+          Jarrah honey is <em>dark</em>, <em>mineral-rich</em>, and unlike anything
+          you'll find at the supermarket. It tastes like the forest it comes from —
+          bold, slightly bitter, with a long caramel finish that lingers.
+        </p>
+        <p>
+          We don't pasteurise it. We don't blend it. We cold-extract each batch
+          and jar it raw. What you get is what the bees made — a true single-origin
+          product with no dilution, no shortcuts, no fiat-style inflation of the volume.
+        </p>
+        <p>
+          Each jar is a snapshot of that season, that forest, those flowers.
+          <strong>You can't fake that. You can't inflate it. Much like Bitcoin.</strong>
+        </p>
+      </div>
+
+      <div class="provenance">
+        <div class="prov-row">
+          <span class="prov-label">Region</span>
+          <span class="prov-value prov-value--highlight">Boya, Perth Hills, Western Australia</span>
+        </div>
+        <div class="prov-row">
+          <span class="prov-label">Source</span>
+          <span class="prov-value">Single-origin, single-flower</span>
+        </div>
+        <div class="prov-row">
+          <span class="prov-label">Process</span>
+          <span class="prov-value">Cold-extracted · Unfiltered</span>
+        </div>
+        <div class="prov-row">
+          <span class="prov-label">Season</span>
+          <span class="prov-value">Limited annual harvest</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-col story-visual">
+      <div class="forest-illo">
+        <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;">
+          <defs>
+            <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0B0B0B"/>
+              <stop offset="100%" stop-color="#141414"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="280" fill="url(#sky2)"/>
+          <g fill="#1C1C1C" opacity="0.9">
+            <rect x="20" y="110" width="8" height="90" rx="2"/><ellipse cx="24" cy="105" rx="18" ry="30"/>
+            <rect x="55" y="95" width="10" height="105" rx="2"/><ellipse cx="60" cy="90" rx="22" ry="36"/>
+            <rect x="90" y="100" width="8" height="100" rx="2"/><ellipse cx="94" cy="95" rx="16" ry="28"/>
+            <rect x="130" y="85" width="10" height="115" rx="2"/><ellipse cx="135" cy="80" rx="24" ry="40"/>
+            <rect x="175" y="92" width="8" height="108" rx="2"/><ellipse cx="179" cy="87" rx="18" ry="32"/>
+            <rect x="210" y="88" width="9" height="112" rx="2"/><ellipse cx="214" cy="83" rx="20" ry="34"/>
+            <rect x="250" y="95" width="8" height="105" rx="2"/><ellipse cx="254" cy="90" rx="17" ry="29"/>
+            <rect x="285" y="82" width="10" height="118" rx="2"/><ellipse cx="290" cy="76" rx="25" ry="42"/>
+            <rect x="325" y="98" width="8" height="102" rx="2"/><ellipse cx="329" cy="93" rx="16" ry="27"/>
+            <rect x="360" y="88" width="9" height="112" rx="2"/><ellipse cx="365" cy="83" rx="20" ry="33"/>
+          </g>
+          <rect x="0" y="200" width="400" height="80" fill="#141414"/>
+          <rect x="0" y="198" width="400" height="6" fill="#1C1C1C"/>
+          <rect x="165" y="100" width="70" height="180" rx="8" fill="#2A1A08"/>
+          <rect x="175" y="100" width="12" height="180" rx="4" fill="#3D2A10" opacity="0.5"/>
+          <g transform="translate(148, 90)">
+            <rect x="0" y="0" width="104" height="70" rx="6" fill="#1C1C1C" stroke="#2A2A2A" stroke-width="1.5"/>
+            <g opacity="0.7">
+              <rect x="8" y="8" width="88" height="12" rx="2" fill="#FFB800" opacity="0.85"/>
+              <rect x="8" y="24" width="88" height="12" rx="2" fill="#FFB800" opacity="0.75"/>
+              <rect x="8" y="40" width="88" height="12" rx="2" fill="#FFB800" opacity="0.65"/>
+            </g>
+            <rect x="-4" y="-8" width="112" height="12" rx="4" fill="#141414" stroke="#2A2A2A" stroke-width="1"/>
+            <ellipse cx="52" cy="70" rx="8" ry="5" fill="#0B0B0B"/>
+            <text x="52" y="29" text-anchor="middle" font-size="11" font-weight="800" fill="#0B0B0B" font-family="monospace">#H</text>
+          </g>
+          <circle cx="260" cy="70" r="3" fill="#FFB800" opacity="0.8"/>
+          <circle cx="278" cy="60" r="2.5" fill="#FFB800" opacity="0.7"/>
+          <circle cx="290" cy="75" r="2" fill="#FFB800" opacity="0.6"/>
+          <circle cx="245" cy="80" r="2.5" fill="#FFB800" opacity="0.65"/>
+          <circle cx="310" cy="65" r="2" fill="#FFB800" opacity="0.5"/>
+          <g fill="#FFB800" opacity="0.3">
+            <circle cx="24" cy="95" r="2"/><circle cx="60" cy="82" r="2.5"/>
+            <circle cx="94" cy="85" r="2"/><circle cx="135" cy="72" r="2.5"/>
+            <circle cx="179" cy="78" r="2"/><circle cx="214" cy="74" r="2.5"/>
+            <circle cx="254" cy="82" r="2"/><circle cx="290" cy="68" r="2.5"/>
+            <circle cx="329" cy="84" r="2"/><circle cx="365" cy="75" r="2.5"/>
+          </g>
+        </svg>
+      </div>
+      <blockquote class="quote-block">
+        <p class="quote-text">
+          Each jar is a timestamp of that season,
+          that forest, those flowers. You can't
+          fake that. You can't inflate it.
+          Much like Bitcoin.
+        </p>
+        <p class="quote-attribution">— The Beekeeper, Boya, Perth Hills</p>
+      </blockquote>
+    </div>
+
+  </div>
+
+  <div class="honeycomb-divider">
+    <div class="hex"></div><div class="hex"></div><div class="hex"></div>
+    <div class="hex"></div><div class="hex"></div>
+  </div>
+
+</section>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashHoney — How to Buy</title>
+  <style>
+    :root {
+      --bg:#0B0B0B; --surface:#141414; --surface2:#1C1C1C;
+      --ink:#FAFAFA; --muted:#666666; --border:#2A2A2A;
+      --accent:#F7931A; --honey:#FFB800; --success:#00C853;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    .buy-section{max-width:960px;margin:0 auto;padding:7rem 2rem}
+    .section-label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+    .section-title{font-size:clamp(1.75rem,5vw,2.75rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-bottom:.5rem}
+    .section-sub{font-size:.9rem;color:var(--muted);margin-bottom:4rem}
+    .section-sub strong{color:var(--ink)}
+    .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:4rem}
+    @media(max-width:720px){.method-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto 4rem}}
+    .method-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:2rem 1.75rem;position:relative;transition:border-color .2s,transform .2s}
+    .method-card:hover{border-color:rgba(255,184,0,.3);transform:translateY(-2px)}
+    .step-num{position:absolute;top:-1px;left:1.5rem;transform:translateY(-50%);background:var(--bg);border:1px solid var(--honey);border-radius:100px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:var(--honey);font-family:'Courier New',monospace}
+    .method-card--fast .step-num{background:var(--honey);color:#000}
+    .method-icon{margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem}
+    .method-icon svg{color:var(--honey)}
+    .method-title{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:.25rem;letter-spacing:-.02em}
+    .method-subtitle{font-size:.78rem;color:var(--honey);font-weight:600;margin-bottom:1rem;letter-spacing:.03em}
+    .method-desc{font-size:.85rem;color:var(--muted);line-height:1.65}
+    .trust-bar{display:flex;flex-wrap:wrap;gap:1rem 2rem;padding:1.5rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-bottom:3rem}
+    @media(max-width:600px){.trust-bar{gap:.75rem 1.5rem}}
+    .trust-item{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--muted)}
+    .trust-item svg{color:var(--success);flex-shrink:0}
+    .btcpay-callout{background:linear-gradient(135deg,rgba(247,147,26,.08) 0%,rgba(255,184,0,.04) 100%);border:1px solid rgba(255,184,0,.2);border-radius:8px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-bottom:3rem}
+    @media(max-width:600px){.btcpay-callout{grid-template-columns:1fr}}
+    .btcpay-text h3{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:.5rem;letter-spacing:-.01em}
+    .btcpay-text p{font-size:.85rem;color:var(--muted);line-height:1.6;max-width:480px}
+    .btcpay-logo{display:flex;flex-direction:column;align-items:center;gap:.4rem;padding:1rem 1.5rem;background:var(--surface);border-radius:6px;border:1px solid var(--border);white-space:nowrap}
+    .btcpay-logo svg{color:var(--accent)}
+    .btcpay-logo span{font-size:.7rem;color:var(--muted);letter-spacing:.05em}
+    .shipping-note{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem 1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:6px}
+    .shipping-note svg{color:var(--accent);flex-shrink:0;margin-top:1px}
+    .shipping-note p{font-size:.85rem;color:var(--muted);line-height:1.6}
+    .shipping-note strong{color:var(--ink)}
+    .buy-cta{text-align:center;margin-top:4rem}
+    .btn-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--honey);color:#000;font-weight:700;font-size:1rem;padding:1rem 3rem;border:none;border-radius:4px;text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}
+    .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,184,0,.3)}
+    .buy-cta-sub{font-size:.8rem;color:var(--muted);margin-top:.75rem}
+  </style>
+</head>
+<body>
+
+<section class="buy-section" id="howtobuy">
+  <span class="section-label">How to Buy</span>
+  <h2 class="section-title">Three Ways to Stack HashHoney</h2>
+  <p class="section-sub"><strong>No accounts. No email. No fiat.</strong> Bitcoin only. Sats locked at invoice.</p>
+
+  <div class="method-grid">
+    <article class="method-card method-card--fast">
+      <div class="step-num">1</div>
+      <div class="method-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span class="method-subtitle" style="margin:0;color:var(--honey)">Fastest</span>
+      </div>
+      <h3 class="method-title">Lightning</h3>
+      <p class="method-desc">Scan the QR with any Lightning wallet — Phoenix, Breez, Zeze, Alby. Payment arrives in seconds. Works with LNURL-pay links too.</p>
+    </article>
+    <article class="method-card">
+      <div class="step-num">2</div>
+      <div class="method-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M11.5 7.5c0-1.19.8-1.5 2.5-1.5s2.5.5 2.5 1.8c0 2.2-3 2.5-3 5h2.5"/><path d="M9 12.5V17h3v-1.5c0-.5.3-.8.8-.8h1.2"/><circle cx="9" cy="12" r=".5" fill="currentColor"/>
+        </svg>
+        <span class="method-subtitle" style="margin:0">On-Chain</span>
+      </div>
+      <h3 class="method-title">Bitcoin Direct</h3>
+      <p class="method-desc">For larger orders. BTCPay Server generates a fresh address per invoice — your sats arrive direct to our node. 1 confirmation needed.</p>
+    </article>
+    <article class="method-card">
+      <div class="step-num">3</div>
+      <div class="method-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12h5"/><path d="M17 7l5 5-5 5"/><path d="M17 12h5"/><path d="M12 2l-5 5 5 5"/>
+        </svg>
+        <span class="method-subtitle" style="margin:0">No Wallet Needed</span>
+      </div>
+      <h3 class="method-title">LNURL</h3>
+      <p class="method-desc">Tap the LNURL link from any compatible wallet. No manual invoice entry. Zap-style workflow — seamless if you live on Nostr.</p>
+    </article>
+  </div>
+
+  <div class="trust-bar">
+    <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Self-hosted BTCPay Server</div>
+    <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No KYC, no account, no email</div>
+    <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Sats locked at time of invoice</div>
+    <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Australia-wide shipping</div>
+    <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Discrete packaging</div>
+  </div>
+
+  <div class="btcpay-callout">
+    <div class="btcpay-text">
+      <h3>Powered by BTCPay Server</h3>
+      <p>Every invoice is generated by our own BTCPay Server instance. We control the keys. No third-party processor touches your payment data. No Coinbase, no Stripe. This is self-sovereign commerce.</p>
+    </div>
+    <div class="btcpay-logo">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/><path d="M11.5 7.5c0-1.19.8-1.5 2.5-1.5s2.5.5 2.5 1.8c0 2.2-3 2.5-3 5h2.5"/><path d="M9 12.5V17h3v-1.5c0-.5.3-.8.8-.8h1.2"/><circle cx="9" cy="12" r=".5" fill="currentColor"/>
+      </svg>
+      <span>BTCPay Server</span>
+    </div>
+  </div>
+
+  <div class="shipping-note">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+    </svg>
+    <p><strong>Orders ship within 3 business days</strong>, Australia-wide, via Australia Post. All outer packaging is plain — no HashHoney branding, no product description visible. Because privacy is not optional.</p>
+  </div>
+
+  <div class="buy-cta">
+    <a href="#products" class="btn-cta">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Choose Your Jar
+    </a>
+    <p class="buy-cta-sub">Sats only. No fiat. No exceptions.</p>
+  </div>
+</section>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashHoney — Why Bitcoiners Love It</title>
+  <style>
+    :root {
+      --bg:#0B0B0B; --surface:#141414; --surface2:#1C1C1C;
+      --ink:#FAFAFA; --muted:#666666; --border:#2A2A2A;
+      --accent:#F7931A; --honey:#FFB800;
+      --danger:#FF4444; --success:#00E676;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    .philosophy-section{max-width:1100px;margin:0 auto;padding:7rem 2rem}
+    .section-label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+    .section-title{font-size:clamp(1.75rem,5vw,2.75rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:var(--ink);margin-bottom:.5rem}
+    .section-title em{font-style:normal;color:var(--honey)}
+    .section-sub{font-size:.9rem;color:var(--muted);margin-bottom:4rem}
+    .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:5rem}
+    @media(max-width:680px){.comparison-grid{grid-template-columns:1fr}}
+    .comparison-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .comparison-col--soft{border-top:3px solid var(--danger)}
+    .comparison-col--soft .col-header{background:rgba(255,68,68,.06)}
+    .comparison-col--soft .col-title{color:var(--danger)}
+    .comparison-col--hard{border-top:3px solid var(--honey)}
+    .comparison-col--hard .col-header{background:rgba(255,184,0,.06)}
+    .comparison-col--hard .col-title{color:var(--honey)}
+    .col-header{padding:1.25rem 1.75rem;border-bottom:1px solid var(--border)}
+    .col-label{font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+    .col-title{font-size:1.1rem;font-weight:800;letter-spacing:-.02em}
+    .col-body{padding:1.5rem 1.75rem}
+    .comparison-list{list-style:none;display:flex;flex-direction:column;gap:.875rem}
+    .comparison-list li{font-size:.85rem;color:var(--muted);line-height:1.55;padding-left:1.25rem;position:relative}
+    .comparison-list li::before{content:'–';position:absolute;left:0;color:var(--border)}
+    .comparison-col--hard .comparison-list li::before{color:var(--honey)}
+    .col-footer{padding:1rem 1.75rem;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted);font-style:italic}
+    .checklist-section{margin-bottom:5rem}
+    .checklist-label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+    .checklist-title{font-size:clamp(1.5rem,4vw,2.25rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-bottom:2.5rem}
+    .checklist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+    @media(max-width:680px){.checklist-grid{grid-template-columns:1fr}}
+    .check-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.75rem;position:relative;transition:border-color .2s}
+    .check-item:hover{border-color:rgba(255,184,0,.3)}
+    .check-num{font-size:.65rem;font-weight:800;letter-spacing:.2em;color:var(--honey);margin-bottom:.75rem;font-family:'Courier New',monospace}
+    .check-question{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.875rem;line-height:1.4}
+    .check-answer{font-size:.82rem;color:var(--muted);line-height:1.7}
+    .check-answer strong{color:var(--ink)}
+    .check-answer em{color:var(--honey);font-style:normal}
+    .closing{background:linear-gradient(135deg,rgba(255,184,0,.07) 0%,rgba(247,147,26,.04) 100%);border:1px solid rgba(255,184,0,.2);border-radius:10px;padding:3rem;text-align:center;margin-bottom:3rem}
+    .closing-title{font-size:clamp(1.5rem,4vw,2.25rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.5rem;line-height:1.2}
+    .closing-body{font-size:1rem;color:var(--muted);line-height:1.8;max-width:540px;margin:0 auto 2rem}
+    .closing-body strong{color:var(--ink)}
+    .closing-body em{color:var(--honey);font-style:normal}
+    .closing-signoff{font-size:.85rem;color:var(--honey);font-weight:600;font-style:italic;border-top:1px solid rgba(255,184,0,.2);padding-top:1.5rem;max-width:540px;margin:0 auto}
+    .honeycomb-divider{display:flex;justify-content:center;gap:6px;opacity:.35}
+    .hex{width:12px;height:12px;background:var(--honey);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+  </style>
+</head>
+<body>
+
+<section class="philosophy-section" id="philosophy">
+  <span class="section-label">Why Bitcoiners Love It</span>
+  <h2 class="section-title">Most Honey is Soft Money.<br /><em>HashHoney is Hard Money.</em></h2>
+  <p class="section-sub">The analogy is tight. The product is real.</p>
+
+  <div class="comparison-grid">
+    <div class="comparison-col comparison-col--soft">
+      <div class="col-header"><div class="col-label">Avoid</div><div class="col-title">Most Honey</div></div>
+      <div class="col-body">
+        <ul class="comparison-list">
+          <li>Blended from multiple origins, often diluted with cheaper syrups</li>
+          <li>Rice syrup, glucose, or cane sugar cut in to stretch volume</li>
+          <li>Pasteurised to kill flavour variance and hide inconsistency</li>
+          <li>AUD price set by supermarket shelf and margin logic</li>
+          <li>Supply inflated by producers when demand outpaces harvest</li>
+          <li>No timestamps — batches anonymised and pooled in warehouses</li>
+          <li>You trust the label. The label is written by marketing.</li>
+        </ul>
+      </div>
+      <div class="col-footer">Fiat logic applied to food. You can't audit it.</div>
+    </div>
+    <div class="comparison-col comparison-col--hard">
+      <div class="col-header"><div class="col-label">Stack</div><div class="col-title">HashHoney</div></div>
+      <div class="col-body">
+        <ul class="comparison-list">
+          <li>Single-origin, single-flower, single-season. Nothing pooled.</li>
+          <li>Cold-extracted. Nothing added. Nothing removed. Lab-verifiable.</li>
+          <li>Unpasteurised. What the bees made is what you receive.</li>
+          <li>Priced in sats. Supply is fixed by the harvest, not by markup.</li>
+          <li>Cannot "print more" when stock runs out. Season ends. Sold out.</li>
+          <li>Each jar carries the timestamp of its harvest. Genuine provenance.</li>
+          <li>You trust the forest. The forest does not have a marketing budget.</li>
+        </ul>
+      </div>
+      <div class="col-footer">Hard money logic applied to food. Proof of work.</div>
+    </div>
+  </div>
+
+  <div class="checklist-section">
+    <span class="checklist-label">The Hard Money Checklist</span>
+    <h3 class="checklist-title">Does it hold the properties of sound money?</h3>
+    <div class="checklist-grid">
+      <div class="check-item">
+        <div class="check-num">01 / 04</div>
+        <div class="check-question">Is the supply limited by physics, not policy?</div>
+        <div class="check-answer"><strong>Yes.</strong> Jarrah flowers once a year, for a few weeks. No beekeeper can inflate the harvest by pressing more buttons. <em>Bees do what bees do. The supply is fixed by biology.</em></div>
+      </div>
+      <div class="check-item">
+        <div class="check-num">02 / 04</div>
+        <div class="check-question">Can it be counterfeited or diluted?</div>
+        <div class="check-answer"><strong>No.</strong> Pure Jarrah honey grades are lab-verifiable via pollen analysis and mass spectrometry. <em>You cannot print AUD to buy more jarrah forest.</em></div>
+      </div>
+      <div class="check-item">
+        <div class="check-num">03 / 04</div>
+        <div class="check-question">Does the producer control the supply?</div>
+        <div class="check-answer"><strong>No.</strong> We sell what we harvest. When the season ends, the product is gone. We don't reorder from a wholesaler. <em>Next season's batch is genuinely uncertain — dependent on the forest, not the forecast.</em></div>
+      </div>
+      <div class="check-item">
+        <div class="check-num">04 / 04</div>
+        <div class="check-question">Does it store value across time?</div>
+        <div class="check-answer"><strong>Yes.</strong> Raw Jarrah honey has a shelf life measured in years, not months. <em>Sats in a hardware wallet last forever. So does real honey.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <h3 class="closing-title">You already know<br />what hard money feels like.</h3>
+    <div class="closing-body">
+      You understand why <strong>21 million is better than unlimited.</strong>
+      Why one bitcoin is one bitcoin. Why stacking sats beats holding cash that quietly loses purchasing power every year.
+      <br /><br />
+      <em>HashHoney is the same logic, applied to the natural world.</em>
+      No dilution. No shortcuts. No inflation of the supply.
+    </div>
+    <div class="closing-signoff">This is real honey. This is sound money.<br />They were always the same thing.</div>
+  </div>
+
+  <div class="honeycomb-divider">
+    <div class="hex"></div><div class="hex"></div><div class="hex"></div>
+    <div class="hex"></div><div class="hex"></div>
+  </div>
+</section>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashHoney — Footer</title>
+  <style>
+    :root {
+      --bg:#0B0B0B; --surface:#141414; --surface2:#1C1C1C;
+      --ink:#FAFAFA; --muted:#666666; --border:#2A2A2A;
+      --accent:#F7931A; --honey:#FFB800;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    .site-footer{max-width:1100px;margin:0 auto;padding:5rem 2rem 3rem;border-top:1px solid var(--border)}
+    .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
+    @media(max-width:720px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem}}
+    @media(max-width:480px){.footer-top{grid-template-columns:1fr}}
+    .footer-brand-name{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-bottom:.5rem}
+    .footer-brand-name span{color:var(--honey)}
+    .footer-tagline{font-size:.8rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.5}
+    .footer-nostr{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:.4rem .75rem;border-radius:100px;transition:border-color .15s,color .15s}
+    .footer-nostr:hover{border-color:var(--accent);color:var(--accent)}
+    .footer-nostr svg{width:14px;height:14px;flex-shrink:0}
+    .footer-col-title{font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+    .footer-links a{font-size:.85rem;color:var(--muted);text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--ink)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-legal{font-size:.75rem;color:var(--muted);line-height:1.5}
+    .footer-legal a{color:var(--muted);text-decoration:none;transition:color .15s}
+    .footer-legal a:hover{color:var(--ink)}
+    .footer-legal span{margin:0 .4rem;opacity:.4}
+    .footer-built{font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:.4rem}
+    .footer-built svg{color:var(--honey);width:14px;height:14px}
+    .footer-bitcoin{font-size:.7rem;color:var(--border);letter-spacing:.1em;text-transform:uppercase;margin-top:1.5rem;text-align:center;display:block}
+  </style>
+</head>
+<body>
+
+<footer class="site-footer">
+
+  <div class="footer-top">
+
+    <!-- Brand col -->
+    <div class="footer-brand">
+      <div class="footer-brand-name">Hash<span>Honey</span></div>
+      <p class="footer-tagline">Proof of Work in Every Spoonful.<br />Western Australian Jarrah honey. Bitcoin only.</p>
+      <a href="#" class="footer-nostr" title="Nostr profile">
+        <!-- Nostr icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.331 3.157c-.121-.02-2.346-.098-3.6-.098-1.61 0-2.832.098-3.088.184-.316.108-.522.551-.39.988.103.341.461.552.795.552.102 0 .194-.015.268-.04.267-.077 1.326-.17 2.415-.17 1.254 0 3.48.08 3.48.08.108.014.21-.08.168-.188l-.258-.96c-.041-.107-.15-.171-.264-.171-1.312 0-3.612.098-3.612.098-.14.019-.26-.121-.224-.255l.33-1.23c.035-.14.19-.224.335-.204l3.612.08c.109.015.193.132.157.241l-.26.84c-.036.11-.151.185-.265.173zM18.55 6.886c-.596-.02-.98.41-1.105.953-.124.539.12.977.65 1.202.534.225 1.14.148 1.356-.35.22-.499-.023-.949-.423-1.084-.103-.034-.21-.05-.307-.05-.103 0-.199.02-.3.04-.146.024-.25-.1-.226-.245l.11-.62c.025-.142.175-.235.32-.21l.27.04c.107.016.19.13.158.237l-.13.63c-.015.055-.06.1-.12.103zm-.67 1.72c-.07.347-.396.575-.732.505-.338-.066-.534-.412-.468-.755.064-.348.397-.575.732-.508.338.067.535.412.468.758zm-1.582-.03c-.064.315-.348.526-.678.462-.326-.065-.51-.375-.447-.775.06-.398.416-.648.75-.583.332.063.516.373.454.773-.034.21-.16.367-.35.44.191.07.325.226.359.436.064.398-.118.708-.452.775-.333.065-.67-.158-.735-.563-.04-.255.038-.492.225-.64-.188-.15-.28-.386-.247-.64.065-.513.5-.854 1.016-.79.511.063.844.51.78 1.025l-.025.6c-.005.107-.097.191-.204.19l-.76-.035c-.107-.005-.19-.097-.19-.205l.04-.96c0-.108.088-.196.2-.2l.78-.035c.107-.004.2.08.204.188l.015.7c.035-.026.072-.053.114-.075.33-.17.715-.04.89.29zm-1.715 2.74c-1.38 0-2.49-1.12-2.49-2.5 0-1.38 1.11-2.5 2.49-2.5 1.38 0 2.5 1.12 2.5 2.5 0 1.38-1.12 2.5-2.5 2.5zm0-3.91a1.41 1.41 0 0 0-1.4 1.41c0 .78.63 1.41 1.4 1.41a1.41 1.41 0 0 0 1.41-1.41c0-.78-.63-1.41-1.41-1.41z"/>
+        </svg>
+        npub1hashhoney0000000000000000000000000000000000000000000
+      </a>
+    </div>
+
+    <!-- Shop col -->
+    <div class="footer-col">
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="#products">The 250g Hive</a></li>
+        <li><a href="#products">The 500g Block</a></li>
+        <li><a href="#products">The 1kg Vault</a></li>
+        <li><a href="#howtobuy">How to Buy</a></li>
+      </ul>
+    </div>
+
+    <!-- Info col -->
+    <div class="footer-col">
+      <div class="footer-col-title">Info</div>
+      <ul class="footer-links">
+        <li><a href="#story">The Story</a></li>
+        <li><a href="#philosophy">Bitcoin Philosophy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      &copy; 2025 HashHoney. All rights reserved.
+      &nbsp;<span>|</span>&nbsp;
+      <a href="#">Privacy</a>
+      &nbsp;<span>|</span>&nbsp;
+      <a href="#">Terms</a>
+      &nbsp;<span>|</span>&nbsp;
+      No fiat accepted here.
+    </div>
+    <div class="footer-built">
+      <!-- Lightning bolt -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+      Built on Bitcoin
+    </div>
+  </div>
+
+  <span class="footer-bitcoin">⚡ sats only · no fiat · self-sovereign commerce · Powered by BTCPay Server</span>
+
+</footer>
+
+</body>
+</html>
+
+</body>
+</html>

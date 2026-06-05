@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashHoney — Products</title>
+  <style>
+    :root {
+      --bg:      #0B0B0B;
+      --surface: #141414;
+      --ink:     #FAFAFA;
+      --muted:   #888888;
+      --border:  #2A2A2A;
+      --accent:  #F7931A;
+      --honey:   #FFB800;
+      --glow:    rgba(255,184,0,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .products-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 3.5rem;
+      max-width: 480px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    @media (max-width: 760px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--honey));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(255,184,0,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px var(--glow);
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card--featured {
+      border-color: rgba(255,184,0,0.4);
+      background: linear-gradient(180deg, rgba(255,184,0,0.06) 0%, var(--surface) 40%);
+    }
+
+    .card--featured::before { opacity: 1; }
+
+    .card-weight {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+
+    .card-tagline {
+      font-size: 0.8rem;
+      color: var(--honey);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-visual {
+      height: 140px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .jar { transition: transform 0.2s; }
+    .card:hover .jar { transform: scale(1.04); }
+
+    .card-description {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+
+    .price-block {
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+    }
+
+    .price-sats {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.15rem;
+    }
+
+    .price-sats span {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .price-approx {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .btn-buy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--honey);
+      color: var(--honey);
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s, transform 0.1s;
+    }
+
+    .btn-buy:hover { background: var(--honey); color: #000; }
+    .btn-buy:active { transform: scale(0.98); }
+
+    .card--featured .btn-buy { background: var(--honey); color: #000; }
+    .card--featured .btn-buy:hover { background: #FFD84D; }
+
+    .products-note {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<section class="products-section" id="products">
+
+  <span class="section-label">The Lineup</span>
+  <h2 class="section-title">Choose Your Hash</h2>
+  <p class="section-sub">All three sizes are 100% pure Western Australian Jarrah honey, cold-extracted and unfiltered.</p>
+
+  <div class="card-grid">
+
+    <!-- 250g -->
+    <article class="card">
+      <div class="card-weight">250g</div>
+      <h3 class="card-name">The 250g Hive</h3>
+      <p class="card-tagline">Start stacking sats and honey</p>
+      <div class="card-visual">
+        <svg class="jar" viewBox="0 0 80 120" width="55" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="15" y="30" width="50" height="70" rx="8" fill="#1C1C1C" stroke="#FFB800" stroke-width="1.5"/>
+          <rect x="20" y="36" width="40" height="58" rx="5" fill="rgba(255,184,0,0.12)"/>
+          <rect x="10" y="20" width="60" height="14" rx="4" fill="#0B0B0B" stroke="#2A2A2A" stroke-width="1.5"/>
+          <text x="40" y="69" text-anchor="middle" font-size="7" font-weight="800" fill="#FFB800" font-family="monospace">#H</text>
+          <rect x="22" y="42" width="36" height="2" rx="1" fill="#FFB800" opacity="0.4"/>
+          <rect x="22" y="48" width="28" height="2" rx="1" fill="#FFB800" opacity="0.25"/>
+          <rect x="22" y="54" width="32" height="2" rx="1" fill="#FFB800" opacity="0.25"/>
+        </svg>
+      </div>
+      <p class="card-description">Your daily dose of WA gold. Rich, dark, full-bodied Jarrah — perfect for your morning stack.</p>
+      <div class="price-block">
+        <div class="price-sats">3,800 <span>sats</span></div>
+        <div class="price-approx">≈ AUD $45 at current price</div>
+        <a href="#" class="btn-buy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Buy with Lightning
+        </a>
+      </div>
+    </article>
+
+    <!-- 500g Flagship -->
+    <article class="card card--featured">
+      <div class="card-weight">500g — Flagship</div>
+      <h3 class="card-name">The 500g Block</h3>
+      <p class="card-tagline">The standard. Nothing trimmed.</p>
+      <div class="card-visual">
+        <svg class="jar" viewBox="0 0 80 130" width="70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="28" width="56" height="82" rx="9" fill="#1C1C1C" stroke="#FFB800" stroke-width="1.5"/>
+          <rect x="17" y="35" width="46" height="68" rx="6" fill="rgba(255,184,0,0.14)"/>
+          <rect x="7" y="16" width="66" height="16" rx="5" fill="#0B0B0B" stroke="#2A2A2A" stroke-width="1.5"/>
+          <text x="40" y="74" text-anchor="middle" font-size="9" font-weight="800" fill="#FFB800" font-family="monospace">#H</text>
+          <rect x="20" y="42" width="40" height="2" rx="1" fill="#FFB800" opacity="0.5"/>
+          <rect x="20" y="49" width="32" height="2" rx="1" fill="#FFB800" opacity="0.3"/>
+          <rect x="20" y="56" width="36" height="2" rx="1" fill="#FFB800" opacity="0.3"/>
+          <rect x="20" y="63" width="28" height="2" rx="1" fill="#FFB800" opacity="0.2"/>
+        </svg>
+      </div>
+      <p class="card-description">Our most popular size. Perfect for gifts or committing to a single exceptional jar. Goes hard.</p>
+      <div class="price-block">
+        <div class="price-sats">7,100 <span>sats</span></div>
+        <div class="price-approx">≈ AUD $85 at current price</div>
+        <a href="#" class="btn-buy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Buy with Lightning
+        </a>
+      </div>
+    </article>
+
+    <!-- 1kg Vault -->
+    <article class="card">
+      <div class="card-weight">1kg</div>
+      <h3 class="card-name">The 1kg Vault</h3>
+      <p class="card-tagline">For the true maximalist.</p>
+      <div class="card-visual">
+        <svg class="jar" viewBox="0 0 80 145" width="85" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="26" width="64" height="100" rx="10" fill="#1C1C1C" stroke="#FFB800" stroke-width="1.5"/>
+          <rect x="14" y="34" width="52" height="82" rx="7" fill="rgba(255,184,0,0.15)"/>
+          <rect x="4" y="14" width="72" height="16" rx="5" fill="#0B0B0B" stroke="#2A2A2A" stroke-width="1.5"/>
+          <text x="40" y="80" text-anchor="middle" font-size="11" font-weight="800" fill="#FFB800" font-family="monospace">#H</text>
+          <rect x="18" y="42" width="44" height="2" rx="1" fill="#FFB800" opacity="0.55"/>
+          <rect x="18" y="50" width="36" height="2" rx="1" fill="#FFB800" opacity="0.35"/>
+          <rect x="18" y="58" width="40" height="2" rx="1" fill="#FFB800" opacity="0.35"/>
+          <rect x="18" y="66" width="32" height="2" rx="1" fill="#FFB800" opacity="0.25"/>
+          <rect x="18" y="74" width="36" height="2" rx="1" fill="#FFB800" opacity="0.2"/>
+        </svg>
+      </div>
+      <p class="card-description">Maximum Jarrah, minimum compromise. Not for beginners. This is the one you stack when you mean it.</p>
+      <div class="price-block">
+        <div class="price-sats">13,300 <span>sats</span></div>
+        <div class="price-approx">≈ AUD $160 at current price</div>
+        <a href="#" class="btn-buy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Buy with Lightning
+        </a>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="products-note">
+    * Sats price is approximate and updates via live BTC/AUD oracle at checkout.
+    All orders ship Australia-wide. No fiat accepted.
+  </p>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashHoney — Footer</title>
+  <style>
+    :root {
+      --bg:#0B0B0B; --surface:#141414; --surface2:#1C1C1C;
+      --ink:#FAFAFA; --muted:#666666; --border:#2A2A2A;
+      --accent:#F7931A; --honey:#FFB800;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    .site-footer{max-width:1100px;margin:0 auto;padding:5rem 2rem 3rem;border-top:1px solid var(--border)}
+    .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
+    @media(max-width:720px){.footer-top{grid-template-columns:1fr 1fr;gap:2rem}}
+    @media(max-width:480px){.footer-top{grid-template-columns:1fr}}
+    .footer-brand-name{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-bottom:.5rem}
+    .footer-brand-name span{color:var(--honey)}
+    .footer-tagline{font-size:.8rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.5}
+    .footer-nostr{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:.4rem .75rem;border-radius:100px;transition:border-color .15s,color .15s}
+    .footer-nostr:hover{border-color:var(--accent);color:var(--accent)}
+    .footer-nostr svg{width:14px;height:14px;flex-shrink:0}
+    .footer-col-title{font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+    .footer-links a{font-size:.85rem;color:var(--muted);text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--ink)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-legal{font-size:.75rem;color:var(--muted);line-height:1.5}
+    .footer-legal a{color:var(--muted);text-decoration:none;transition:color .15s}
+    .footer-legal a:hover{color:var(--ink)}
+    .footer-legal span{margin:0 .4rem;opacity:.4}
+    .footer-built{font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:.4rem}
+    .footer-built svg{color:var(--honey);width:14px;height:14px}
+    .footer-bitcoin{font-size:.7rem;color:var(--border);letter-spacing:.1em;text-transform:uppercase;margin-top:1.5rem;text-align:center;display:block}
+  </style>
+</head>
+<body>
+
+<footer class="site-footer">
+
+  <div class="footer-top">
+
+    <!-- Brand col -->
+    <div class="footer-brand">
+      <div class="footer-brand-name">Hash<span>Honey</span></div>
+      <p class="footer-tagline">Proof of Work in Every Spoonful.<br />Western Australian Jarrah honey. Bitcoin only.</p>
+      <a href="#" class="footer-nostr" title="Nostr profile">
+        <!-- Nostr icon -->
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.331 3.157c-.121-.02-2.346-.098-3.6-.098-1.61 0-2.832.098-3.088.184-.316.108-.522.551-.39.988.103.341.461.552.795.552.102 0 .194-.015.268-.04.267-.077 1.326-.17 2.415-.17 1.254 0 3.48.08 3.48.08.108.014.21-.08.168-.188l-.258-.96c-.041-.107-.15-.171-.264-.171-1.312 0-3.612.098-3.612.098-.14.019-.26-.121-.224-.255l.33-1.23c.035-.14.19-.224.335-.204l3.612.08c.109.015.193.132.157.241l-.26.84c-.036.11-.151.185-.265.173zM18.55 6.886c-.596-.02-.98.41-1.105.953-.124.539.12.977.65 1.202.534.225 1.14.148 1.356-.35.22-.499-.023-.949-.423-1.084-.103-.034-.21-.05-.307-.05-.103 0-.199.02-.3.04-.146.024-.25-.1-.226-.245l.11-.62c.025-.142.175-.235.32-.21l.27.04c.107.016.19.13.158.237l-.13.63c-.015.055-.06.1-.12.103zm-.67 1.72c-.07.347-.396.575-.732.505-.338-.066-.534-.412-.468-.755.064-.348.397-.575.732-.508.338.067.535.412.468.758zm-1.582-.03c-.064.315-.348.526-.678.462-.326-.065-.51-.375-.447-.775.06-.398.416-.648.75-.583.332.063.516.373.454.773-.034.21-.16.367-.35.44.191.07.325.226.359.436.064.398-.118.708-.452.775-.333.065-.67-.158-.735-.563-.04-.255.038-.492.225-.64-.188-.15-.28-.386-.247-.64.065-.513.5-.854 1.016-.79.511.063.844.51.78 1.025l-.025.6c-.005.107-.097.191-.204.19l-.76-.035c-.107-.005-.19-.097-.19-.205l.04-.96c0-.108.088-.196.2-.2l.78-.035c.107-.004.2.08.204.188l.015.7c.035-.026.072-.053.114-.075.33-.17.715-.04.89.29zm-1.715 2.74c-1.38 0-2.49-1.12-2.49-2.5 0-1.38 1.11-2.5 2.49-2.5 1.38 0 2.5 1.12 2.5 2.5 0 1.38-1.12 2.5-2.5 2.5zm0-3.91a1.41 1.41 0 0 0-1.4 1.41c0 .78.63 1.41 1.4 1.41a1.41 1.41 0 0 0 1.41-1.41c0-.78-.63-1.41-1.41-1.41z"/>
+        </svg>
+        npub1hashhoney0000000000000000000000000000000000000000000
+      </a>
+    </div>
+
+    <!-- Shop col -->
+    <div class="footer-col">
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="#products">The 250g Hive</a></li>
+        <li><a href="#products">The 500g Block</a></li>
+        <li><a href="#products">The 1kg Vault</a></li>
+        <li><a href="#howtobuy">How to Buy</a></li>
+      </ul>
+    </div>
+
+    <!-- Info col -->
+    <div class="footer-col">
+      <div class="footer-col-title">Info</div>
+      <ul class="footer-links">
+        <li><a href="#story">The Story</a></li>
+        <li><a href="#philosophy">Bitcoin Philosophy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      &copy; 2025 HashHoney. All rights reserved.
+      &nbsp;<span>|</span>&nbsp;
+      <a href="#">Privacy</a>
+      &nbsp;<span>|</span>&nbsp;
+      <a href="#">Terms</a>
+      &nbsp;<span>|</span>&nbsp;
+      No fiat accepted here.
+    </div>
+    <div class="footer-built">
+      <!-- Lightning bolt -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+      Built on Bitcoin
+    </div>
+  </div>
+
+  <span class="footer-bitcoin">⚡ sats only · no fiat · self-sovereign commerce · Powered by BTCPay Server</span>
+
+</footer>
+
+</body>
+</html>

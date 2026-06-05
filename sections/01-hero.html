@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashHoney — Proof of Work in Every Spoonful</title>
+  <meta name="description" content="Rare Western Australian Jarrah honey. Bitcoin only. No fiat. Sats accepted." />
+  <style>
+    :root {
+      --bg:      #0B0B0B;
+      --surface: #141414;
+      --ink:     #FAFAFA;
+      --muted:   #666666;
+      --border:  #2A2A2A;
+      --accent:  #F7931A;
+      --honey:   #FFB800;
+      --glow:    rgba(255,184,0,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(60deg,  transparent, transparent 14px, rgba(255,184,0,0.04) 14px, rgba(255,184,0,0.04) 15px),
+        repeating-linear-gradient(-60deg, transparent, transparent 14px, rgba(255,184,0,0.04) 14px, rgba(255,184,0,0.04) 15px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      max-width: 760px;
+      width: 100%;
+    }
+
+    .logo-mark {
+      display: inline-block;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo-mark svg {
+      width: 64px;
+      height: 64px;
+      filter: drop-shadow(0 0 20px var(--glow));
+    }
+
+    .brand {
+      font-size: clamp(3.5rem, 12vw, 7rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .brand span { color: var(--honey); }
+
+    .tagline {
+      font-size: clamp(0.75rem, 2vw, 1rem);
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .headline {
+      font-size: clamp(1.25rem, 4vw, 2rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 1rem;
+      max-width: 580px;
+      margin-inline: auto;
+    }
+
+    .sub-headline {
+      font-size: clamp(0.875rem, 2vw, 1rem);
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--honey);
+      margin: 0 auto 3rem;
+      opacity: 0.6;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--honey);
+      color: #000;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      padding: 0.875rem 2.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255,184,0,0.35);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-secondary {
+      display: inline-block;
+      color: var(--muted);
+      font-size: 0.875rem;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .btn-secondary:hover { color: var(--ink); border-color: var(--muted); }
+
+    .sats-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.4rem 0.875rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 3rem;
+    }
+
+    .sats-badge svg { width: 14px; height: 14px; color: var(--accent); }
+
+    @media (max-width: 480px) {
+      .hero { padding: 1.5rem 1.25rem; }
+      .cta-group { width: 100%; }
+      .btn-primary { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<main class="hero" role="main">
+
+  <div class="logo-mark" aria-label="HashHoney Logo">
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 4L54.3923 18V46L32 60L9.6077 46V18L32 4Z"
+            stroke="#FFB800" stroke-width="2" fill="none"/>
+      <path d="M32 14L46.9282 23V37L32 46L17.0718 37V23L32 14Z"
+            stroke="#F7931A" stroke-width="1.5" fill="rgba(247,147,26,0.08)"/>
+      <line x1="17.0718" y1="23" x2="46.9282" y2="37" stroke="#FFB800" stroke-width="1.5" opacity="0.6"/>
+      <line x1="46.9282" y1="23" x2="17.0718" y2="37" stroke="#FFB800" stroke-width="1.5" opacity="0.6"/>
+      <text x="32" y="33" text-anchor="middle" font-size="8" font-weight="800"
+            fill="#FFB800" font-family="monospace">#</text>
+    </svg>
+  </div>
+
+  <h1 class="brand">Hash<span>Honey</span></h1>
+  <p class="tagline">Proof of Work in Every Spoonful</p>
+
+  <p class="headline">
+    Rare Western Australian Jarrah Honey.<br />
+    No fiat. No compromise. Bitcoin only.
+  </p>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <div class="cta-group">
+    <a href="#products" class="btn-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+      Buy with Lightning
+    </a>
+    <a href="#story" class="btn-secondary">Read the Story →</a>
+  </div>
+
+  <div class="sats-badge">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+    </svg>
+    Powered by BTCPay Server · Lightning &amp; On-Chain
+  </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HashHoney — Why Bitcoiners Love It</title>
+  <style>
+    :root {
+      --bg:#0B0B0B; --surface:#141414; --surface2:#1C1C1C;
+      --ink:#FAFAFA; --muted:#666666; --border:#2A2A2A;
+      --accent:#F7931A; --honey:#FFB800;
+      --danger:#FF4444; --success:#00E676;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    .philosophy-section{max-width:1100px;margin:0 auto;padding:7rem 2rem}
+    .section-label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+    .section-title{font-size:clamp(1.75rem,5vw,2.75rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:var(--ink);margin-bottom:.5rem}
+    .section-title em{font-style:normal;color:var(--honey)}
+    .section-sub{font-size:.9rem;color:var(--muted);margin-bottom:4rem}
+    .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:5rem}
+    @media(max-width:680px){.comparison-grid{grid-template-columns:1fr}}
+    .comparison-col{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .comparison-col--soft{border-top:3px solid var(--danger)}
+    .comparison-col--soft .col-header{background:rgba(255,68,68,.06)}
+    .comparison-col--soft .col-title{color:var(--danger)}
+    .comparison-col--hard{border-top:3px solid var(--honey)}
+    .comparison-col--hard .col-header{background:rgba(255,184,0,.06)}
+    .comparison-col--hard .col-title{color:var(--honey)}
+    .col-header{padding:1.25rem 1.75rem;border-bottom:1px solid var(--border)}
+    .col-label{font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+    .col-title{font-size:1.1rem;font-weight:800;letter-spacing:-.02em}
+    .col-body{padding:1.5rem 1.75rem}
+    .comparison-list{list-style:none;display:flex;flex-direction:column;gap:.875rem}
+    .comparison-list li{font-size:.85rem;color:var(--muted);line-height:1.55;padding-left:1.25rem;position:relative}
+    .comparison-list li::before{content:'–';position:absolute;left:0;color:var(--border)}
+    .comparison-col--hard .comparison-list li::before{color:var(--honey)}
+    .col-footer{padding:1rem 1.75rem;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted);font-style:italic}
+    .checklist-section{margin-bottom:5rem}
+    .checklist-label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+    .checklist-title{font-size:clamp(1.5rem,4vw,2.25rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-bottom:2.5rem}
+    .checklist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+    @media(max-width:680px){.checklist-grid{grid-template-columns:1fr}}
+    .check-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.75rem;position:relative;transition:border-color .2s}
+    .check-item:hover{border-color:rgba(255,184,0,.3)}
+    .check-num{font-size:.65rem;font-weight:800;letter-spacing:.2em;color:var(--honey);margin-bottom:.75rem;font-family:'Courier New',monospace}
+    .check-question{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:.875rem;line-height:1.4}
+    .check-answer{font-size:.82rem;color:var(--muted);line-height:1.7}
+    .check-answer strong{color:var(--ink)}
+    .check-answer em{color:var(--honey);font-style:normal}
+    .closing{background:linear-gradient(135deg,rgba(255,184,0,.07) 0%,rgba(247,147,26,.04) 100%);border:1px solid rgba(255,184,0,.2);border-radius:10px;padding:3rem;text-align:center;margin-bottom:3rem}
+    .closing-title{font-size:clamp(1.5rem,4vw,2.25rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-bottom:1.5rem;line-height:1.2}
+    .closing-body{font-size:1rem;color:var(--muted);line-height:1.8;max-width:540px;margin:0 auto 2rem}
+    .closing-body strong{color:var(--ink)}
+    .closing-body em{color:var(--honey);font-style:normal}
+    .closing-signoff{font-size:.85rem;color:var(--honey);font-weight:600;font-style:italic;border-top:1px solid rgba(255,184,0,.2);padding-top:1.5rem;max-width:540px;margin:0 auto}
+    .honeycomb-divider{display:flex;justify-content:center;gap:6px;opacity:.35}
+    .hex{width:12px;height:12px;background:var(--honey);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+  </style>
+</head>
+<body>
+
+<section class="philosophy-section" id="philosophy">
+  <span class="section-label">Why Bitcoiners Love It</span>
+  <h2 class="section-title">Most Honey is Soft Money.<br /><em>HashHoney is Hard Money.</em></h2>
+  <p class="section-sub">The analogy is tight. The product is real.</p>
+
+  <div class="comparison-grid">
+    <div class="comparison-col comparison-col--soft">
+      <div class="col-header"><div class="col-label">Avoid</div><div class="col-title">Most Honey</div></div>
+      <div class="col-body">
+        <ul class="comparison-list">
+          <li>Blended from multiple origins, often diluted with cheaper syrups</li>
+          <li>Rice syrup, glucose, or cane sugar cut in to stretch volume</li>
+          <li>Pasteurised to kill flavour variance and hide inconsistency</li>
+          <li>AUD price set by supermarket shelf and margin logic</li>
+          <li>Supply inflated by producers when demand outpaces harvest</li>
+          <li>No timestamps — batches anonymised and pooled in warehouses</li>
+          <li>You trust the label. The label is written by marketing.</li>
+        </ul>
+      </div>
+      <div class="col-footer">Fiat logic applied to food. You can't audit it.</div>
+    </div>
+    <div class="comparison-col comparison-col--hard">
+      <div class="col-header"><div class="col-label">Stack</div><div class="col-title">HashHoney</div></div>
+      <div class="col-body">
+        <ul class="comparison-list">
+          <li>Single-origin, single-flower, single-season. Nothing pooled.</li>
+          <li>Cold-extracted. Nothing added. Nothing removed. Lab-verifiable.</li>
+          <li>Unpasteurised. What the bees made is what you receive.</li>
+          <li>Priced in sats. Supply is fixed by the harvest, not by markup.</li>
+          <li>Cannot "print more" when stock runs out. Season ends. Sold out.</li>
+          <li>Each jar carries the timestamp of its harvest. Genuine provenance.</li>
+          <li>You trust the forest. The forest does not have a marketing budget.</li>
+        </ul>
+      </div>
+      <div class="col-footer">Hard money logic applied to food. Proof of work.</div>
+    </div>
+  </div>
+
+  <div class="checklist-section">
+    <span class="checklist-label">The Hard Money Checklist</span>
+    <h3 class="checklist-title">Does it hold the properties of sound money?</h3>
+    <div class="checklist-grid">
+      <div class="check-item">
+        <div class="check-num">01 / 04</div>
+        <div class="check-question">Is the supply limited by physics, not policy?</div>
+        <div class="check-answer"><strong>Yes.</strong> Jarrah flowers once a year, for a few weeks. No beekeeper can inflate the harvest by pressing more buttons. <em>Bees do what bees do. The supply is fixed by biology.</em></div>
+      </div>
+      <div class="check-item">
+        <div class="check-num">02 / 04</div>
+        <div class="check-question">Can it be counterfeited or diluted?</div>
+        <div class="check-answer"><strong>No.</strong> Pure Jarrah honey grades are lab-verifiable via pollen analysis and mass spectrometry. <em>You cannot print AUD to buy more jarrah forest.</em></div>
+      </div>
+      <div class="check-item">
+        <div class="check-num">03 / 04</div>
+        <div class="check-question">Does the producer control the supply?</div>
+        <div class="check-answer"><strong>No.</strong> We sell what we harvest. When the season ends, the product is gone. We don't reorder from a wholesaler. <em>Next season's batch is genuinely uncertain — dependent on the forest, not the forecast.</em></div>
+      </div>
+      <div class="check-item">
+        <div class="check-num">04 / 04</div>
+        <div class="check-question">Does it store value across time?</div>
+        <div class="check-answer"><strong>Yes.</strong> Raw Jarrah honey has a shelf life measured in years, not months. <em>Sats in a hardware wallet last forever. So does real honey.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <h3 class="closing-title">You already know<br />what hard money feels like.</h3>
+    <div class="closing-body">
+      You understand why <strong>21 million is better than unlimited.</strong>
+      Why one bitcoin is one bitcoin. Why stacking sats beats holding cash that quietly loses purchasing power every year.
+      <br /><br />
+      <em>HashHoney is the same logic, applied to the natural world.</em>
+      No dilution. No shortcuts. No inflation of the supply.
+    </div>
+    <div class="closing-signoff">This is real honey. This is sound money.<br />They were always the same thing.</div>
+  </div>
+
+  <div class="honeycomb-divider">
+    <div class="hex"></div><div class="hex"></div><div class="hex"></div>
+    <div class="hex"></div><div class="hex"></div>
+  </div>
+</section>
+
+</body>
+</html>
