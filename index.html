@@ -106,37 +106,23 @@
     }
     .bee {
       position: absolute;
-      width: 38px;
-      height: 26px;
+      font-size: 28px;
+      line-height: 1;
       left: var(--bx, 50%);
       top: var(--by, 50%);
       transform: translate(-50%, -50%) translate3d(var(--tx,0px), var(--ty,0px), 0) rotate(var(--rot, 0deg));
       will-change: transform;
       animation: beeWobble var(--dur, 6s) ease-in-out infinite;
-      opacity: 0.85;
-      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.25));
-    }
-    .bee svg { width: 100%; height: 100%; display:block; }
-    .bee .wing {
-      transform-origin: 12px 6px;
-      animation: wingFlap 0.12s linear infinite;
-    }
-    .bee:nth-child(2) .wing { animation-delay: -0.04s; }
-    .bee:nth-child(3) .wing { animation-delay: -0.06s; }
-    .bee:nth-child(4) .wing { animation-delay: -0.02s; }
-    .bee:nth-child(5) .wing { animation-delay: -0.08s; }
-
-    @keyframes wingFlap {
-      0%   { transform: scaleY(1)   rotate(-6deg); }
-      50%  { transform: scaleY(0.3) rotate(0deg);  }
-      100% { transform: scaleY(1)   rotate(-6deg); }
+      opacity: 0.9;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+      user-select: none;
     }
     @keyframes beeWobble {
       0%, 100% { transform: translate(-50%, -50%) translate3d(var(--tx,0px), var(--ty,0px), 0) rotate(var(--rot, 0deg)); }
       50%      { transform: translate(-50%, -50%) translate3d(calc(var(--tx,0px) + var(--wx,8px)), calc(var(--ty,0px) + var(--wy,-4px)), 0) rotate(calc(var(--rot, 0deg) + var(--wr,5deg))); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .bee, .bee .wing { animation: none !important; }
+      .bee { animation: none !important; }
     }
 
     /* Lift page content above the fixed bee layer */
@@ -154,21 +140,11 @@
   </style>
 
   <div class="bee-layer" aria-hidden="true">
-    <div class="bee" style="--bx:12%; --by:20%; --tx:0px;  --ty:0px;  --rot:8deg;  --wx:14px; --wy:-6px; --wr:-4deg; --dur:5.2s;">
-      <svg viewBox="0 0 38 26"><ellipse class="wing" cx="12" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse class="wing" cx="26" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse cx="19" cy="15" rx="13" ry="8" fill="#1a1a1a"/><rect x="11" y="8"  width="3" height="14" fill="#f5b800"/><rect x="18" y="8"  width="3" height="14" fill="#f5b800"/><rect x="25" y="8"  width="2" height="14" fill="#f5b800"/><circle cx="32" cy="14" r="1.5" fill="#000"/></svg>
-    </div>
-    <div class="bee" style="--bx:78%; --by:35%; --tx:0px;  --ty:0px;  --rot:-12deg;--wx:-12px;--wy:5px;  --wr:6deg;  --dur:6.4s;">
-      <svg viewBox="0 0 38 26"><ellipse class="wing" cx="12" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse class="wing" cx="26" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse cx="19" cy="15" rx="13" ry="8" fill="#1a1a1a"/><rect x="11" y="8"  width="3" height="14" fill="#f5b800"/><rect x="18" y="8"  width="3" height="14" fill="#f5b800"/><rect x="25" y="8"  width="2" height="14" fill="#f5b800"/><circle cx="32" cy="14" r="1.5" fill="#000"/></svg>
-    </div>
-    <div class="bee" style="--bx:28%; --by:55%; --tx:0px;  --ty:0px;  --rot:18deg; --wx:18px; --wy:-8px; --wr:-7deg; --dur:4.8s;">
-      <svg viewBox="0 0 38 26"><ellipse class="wing" cx="12" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse class="wing" cx="26" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse cx="19" cy="15" rx="13" ry="8" fill="#1a1a1a"/><rect x="11" y="8"  width="3" height="14" fill="#f5b800"/><rect x="18" y="8"  width="3" height="14" fill="#f5b800"/><rect x="25" y="8"  width="2" height="14" fill="#f5b800"/><circle cx="32" cy="14" r="1.5" fill="#000"/></svg>
-    </div>
-    <div class="bee" style="--bx:65%; --by:72%; --tx:0px;  --ty:0px;  --rot:-6deg; --wx:-10px;--wy:-6px; --wr:3deg;  --dur:7.1s;">
-      <svg viewBox="0 0 38 26"><ellipse class="wing" cx="12" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse class="wing" cx="26" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse cx="19" cy="15" rx="13" ry="8" fill="#1a1a1a"/><rect x="11" y="8"  width="3" height="14" fill="#f5b800"/><rect x="18" y="8"  width="3" height="14" fill="#f5b800"/><rect x="25" y="8"  width="2" height="14" fill="#f5b800"/><circle cx="32" cy="14" r="1.5" fill="#000"/></svg>
-    </div>
-    <div class="bee" style="--bx:45%; --by:88%; --tx:0px;  --ty:0px;  --rot:24deg; --wx:20px; --wy:4px;  --wr:-5deg; --dur:5.7s;">
-      <svg viewBox="0 0 38 26"><ellipse class="wing" cx="12" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse class="wing" cx="26" cy="8"  rx="9" ry="5"  fill="rgba(255,255,255,0.55)"/><ellipse cx="19" cy="15" rx="13" ry="8" fill="#1a1a1a"/><rect x="11" y="8"  width="3" height="14" fill="#f5b800"/><rect x="18" y="8"  width="3" height="14" fill="#f5b800"/><rect x="25" y="8"  width="2" height="14" fill="#f5b800"/><circle cx="32" cy="14" r="1.5" fill="#000"/></svg>
-    </div>
+    <div class="bee" style="--bx:12%; --by:20%; --tx:0px; --ty:0px; --rot:8deg;   --wx:14px; --wy:-6px; --wr:-4deg; --dur:5.2s;">🐝</div>
+    <div class="bee" style="--bx:78%; --by:35%; --tx:0px; --ty:0px; --rot:-12deg; --wx:-12px;--wy:5px;  --wr:6deg;  --dur:6.4s;">🐝</div>
+    <div class="bee" style="--bx:28%; --by:55%; --tx:0px; --ty:0px; --rot:18deg;  --wx:18px; --wy:-8px; --wr:-7deg; --dur:4.8s;">🐝</div>
+    <div class="bee" style="--bx:65%; --by:72%; --tx:0px; --ty:0px; --rot:-6deg;  --wx:-10px;--wy:-6px; --wr:3deg;  --dur:7.1s;">🐝</div>
+    <div class="bee" style="--bx:45%; --by:88%; --tx:0px; --ty:0px; --rot:24deg;  --wx:20px; --wy:4px;  --wr:-5deg; --dur:5.7s;">🐝</div>
   </div>
 
   <script>
@@ -327,6 +303,14 @@
       align-items: stretch;
     }
 
+    /* Single product: center it nicely */
+    .card-grid > .card:only-child {
+      grid-column: 1 / -1;
+      max-width: 420px;
+      justify-self: center;
+      width: 100%;
+    }
+
     @media (max-width: 760px) {
       .card-grid {
         grid-template-columns: 1fr;
@@ -482,87 +466,32 @@
 
   <span class="section-label">The Lineup</span>
   <h2 class="section-title">Choose Your Hash</h2>
-  <p class="section-sub">All three sizes are 100% pure Western Australian Jarrah honey, cold-extracted and unfiltered.</p>
+  <p class="section-sub">100% pure Western Australian Jarrah honey, cold-extracted and unfiltered. One size. No compromises.</p>
 
   <div class="card-grid">
 
-    <!-- 250g -->
-    <article class="card">
-      <div class="card-weight">250g</div>
-      <h3 class="card-name">The 250g Hive</h3>
-      <p class="card-tagline">Start stacking sats and honey</p>
-      <div class="card-visual">
-        <svg class="jar" viewBox="0 0 80 120" width="55" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="15" y="30" width="50" height="70" rx="8" fill="#1C1C1C" stroke="#FFB800" stroke-width="1.5"/>
-          <rect x="20" y="36" width="40" height="58" rx="5" fill="rgba(255,184,0,0.12)"/>
-          <rect x="10" y="20" width="60" height="14" rx="4" fill="#0B0B0B" stroke="#2A2A2A" stroke-width="1.5"/>
-          <text x="40" y="69" text-anchor="middle" font-size="7" font-weight="800" fill="#FFB800" font-family="monospace">#H</text>
-          <rect x="22" y="42" width="36" height="2" rx="1" fill="#FFB800" opacity="0.4"/>
-          <rect x="22" y="48" width="28" height="2" rx="1" fill="#FFB800" opacity="0.25"/>
-          <rect x="22" y="54" width="32" height="2" rx="1" fill="#FFB800" opacity="0.25"/>
-        </svg>
-      </div>
-      <p class="card-description">Your daily dose of WA gold. Rich, dark, full-bodied Jarrah — perfect for your morning stack.</p>
-      <div class="price-block">
-        <div class="price-sats">3,800 <span>sats</span></div>
-        <div class="price-approx">≈ AUD $45 at current price</div>
-        <a href="#" class="btn-buy">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          Buy with Lightning
-        </a>
-      </div>
-    </article>
-
-    <!-- 500g Flagship -->
+    <!-- 750g — The only jar -->
     <article class="card card--featured">
-      <div class="card-weight">500g — Flagship</div>
-      <h3 class="card-name">The 500g Block</h3>
-      <p class="card-tagline">The standard. Nothing trimmed.</p>
+      <div class="card-weight">750g</div>
+      <h3 class="card-name">The 750g Block</h3>
+      <p class="card-tagline">The one. The only.</p>
       <div class="card-visual">
-        <svg class="jar" viewBox="0 0 80 130" width="70" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="12" y="28" width="56" height="82" rx="9" fill="#1C1C1C" stroke="#FFB800" stroke-width="1.5"/>
-          <rect x="17" y="35" width="46" height="68" rx="6" fill="rgba(255,184,0,0.14)"/>
-          <rect x="7" y="16" width="66" height="16" rx="5" fill="#0B0B0B" stroke="#2A2A2A" stroke-width="1.5"/>
-          <text x="40" y="74" text-anchor="middle" font-size="9" font-weight="800" fill="#FFB800" font-family="monospace">#H</text>
-          <rect x="20" y="42" width="40" height="2" rx="1" fill="#FFB800" opacity="0.5"/>
-          <rect x="20" y="49" width="32" height="2" rx="1" fill="#FFB800" opacity="0.3"/>
-          <rect x="20" y="56" width="36" height="2" rx="1" fill="#FFB800" opacity="0.3"/>
-          <rect x="20" y="63" width="28" height="2" rx="1" fill="#FFB800" opacity="0.2"/>
+        <svg class="jar" viewBox="0 0 80 140" width="85" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="28" width="60" height="92" rx="10" fill="#1C1C1C" stroke="#FFB800" stroke-width="1.5"/>
+          <rect x="15" y="35" width="50" height="78" rx="7" fill="rgba(255,184,0,0.15)"/>
+          <rect x="6" y="16" width="68" height="16" rx="5" fill="#0B0B0B" stroke="#2A2A2A" stroke-width="1.5"/>
+          <text x="40" y="78" text-anchor="middle" font-size="11" font-weight="800" fill="#FFB800" font-family="monospace">#H</text>
+          <rect x="20" y="44" width="40" height="2" rx="1" fill="#FFB800" opacity="0.55"/>
+          <rect x="20" y="52" width="32" height="2" rx="1" fill="#FFB800" opacity="0.35"/>
+          <rect x="20" y="60" width="36" height="2" rx="1" fill="#FFB800" opacity="0.35"/>
+          <rect x="20" y="68" width="28" height="2" rx="1" fill="#FFB800" opacity="0.25"/>
+          <rect x="20" y="76" width="32" height="2" rx="1" fill="#FFB800" opacity="0.2"/>
         </svg>
       </div>
-      <p class="card-description">Our most popular size. Perfect for gifts or committing to a single exceptional jar. Goes hard.</p>
+      <p class="card-description">750g of rare Western Australian Jarrah. Cold-extracted, unfiltered, TA-rated. One size, properly filled, properly priced.</p>
       <div class="price-block">
-        <div class="price-sats">7,100 <span>sats</span></div>
-        <div class="price-approx">≈ AUD $85 at current price</div>
-        <a href="#" class="btn-buy">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          Buy with Lightning
-        </a>
-      </div>
-    </article>
-
-    <!-- 1kg Vault -->
-    <article class="card">
-      <div class="card-weight">1kg</div>
-      <h3 class="card-name">The 1kg Vault</h3>
-      <p class="card-tagline">For the true maximalist.</p>
-      <div class="card-visual">
-        <svg class="jar" viewBox="0 0 80 145" width="85" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="8" y="26" width="64" height="100" rx="10" fill="#1C1C1C" stroke="#FFB800" stroke-width="1.5"/>
-          <rect x="14" y="34" width="52" height="82" rx="7" fill="rgba(255,184,0,0.15)"/>
-          <rect x="4" y="14" width="72" height="16" rx="5" fill="#0B0B0B" stroke="#2A2A2A" stroke-width="1.5"/>
-          <text x="40" y="80" text-anchor="middle" font-size="11" font-weight="800" fill="#FFB800" font-family="monospace">#H</text>
-          <rect x="18" y="42" width="44" height="2" rx="1" fill="#FFB800" opacity="0.55"/>
-          <rect x="18" y="50" width="36" height="2" rx="1" fill="#FFB800" opacity="0.35"/>
-          <rect x="18" y="58" width="40" height="2" rx="1" fill="#FFB800" opacity="0.35"/>
-          <rect x="18" y="66" width="32" height="2" rx="1" fill="#FFB800" opacity="0.25"/>
-          <rect x="18" y="74" width="36" height="2" rx="1" fill="#FFB800" opacity="0.2"/>
-        </svg>
-      </div>
-      <p class="card-description">Maximum Jarrah, minimum compromise. Not for beginners. This is the one you stack when you mean it.</p>
-      <div class="price-block">
-        <div class="price-sats">13,300 <span>sats</span></div>
-        <div class="price-approx">≈ AUD $160 at current price</div>
+        <div class="price-sats">11,000 <span>sats</span></div>
+        <div class="price-approx">≈ AUD $18 at current price</div>
         <a href="#" class="btn-buy">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           Buy with Lightning
